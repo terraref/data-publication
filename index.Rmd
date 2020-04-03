@@ -1,0 +1,60 @@
+--- 
+title: "Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors"
+author: "David LeBauer and many others"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This describes the TERRA REF public data release"
+---
+
+```{r include = FALSE}
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  include = FALSE,
+  cache = TRUE, 
+  message = FALSE)#,
+  #root.dir = normalizePath("../book")))
+
+library(dplyr)
+library(stringr)
+library(ggplot2)
+
+#Setting up traits package
+#library(traits)
+#options(betydb_url = "https://terraref.ncsa.illinois.edu/bety/",
+#        betydb_api_version = 'v1',
+#        betydb_key = readLines('~/.betykey', warn = FALSE))
+
+# to query the database either use 
+# ssh -Nf -L 5432:localhost:5432 bety6.ncsa.illinois.edu 
+# to mount the database
+bety_src <- src_postgres(dbname = "bety",
+                         password = 'DelchevskoOro',
+                         host = 'localhost',
+                         user = 'viewer',
+                         port = 5432)
+
+# for use with publication: after making data public 
+# cd code/betydb_docker
+# docker-compose up -d postgres
+# docker-compose run --rm bety initialize
+# docker-compose run --rm bety sync
+# bety_src <- src_postgres(dbname = "bety", 
+#                          password = 'bety',
+#                          host = 'localhost', 
+#                          user = 'bety',
+#                          port = 5433)
+```
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+

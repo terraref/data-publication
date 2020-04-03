@@ -1,0 +1,11 @@
+bookdown::html_document2:
+  css: style.css
+bookdown::pdf_document2:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  fig_caption: yes
+  toc: true
+bookdown::tufte_book2: default

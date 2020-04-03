@@ -1,0 +1,27 @@
+book_filename: "terraref-dryad"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files: [
+"index.Rmd",
+"content/abstract.Rmd",
+"content/intro.Rmd",
+"content/datasets.Rmd",
+"content/sensors.Rmd",
+"content/phenotypes.Rmd",
+"content/environmental.Rmd",
+"content/genomics.Rmd",
+#"useage_notes.md",
+#"methods.Rmd",
+#"phenotypes.Rmd",
+#"weather.Rmd"
+#"genomics.Rmd", 
+#sensor-data.Rmd",
+#"appendix.Rmd",
+#"treatments.md",
+#"methods.md",
+#"variables.md",
+#"germplasm.md",
+"content/references.Rmd"
+]
