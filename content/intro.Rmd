@@ -12,24 +12,15 @@
 
 The data pipeline used to process sensor data and generate was described in @burnette2018. 
 
-<!--
-# Code to generate maps:
-# https://gist.github.com/dlebauer/c303980b3a71675d02184caf6bd01ea9
-# https://gist.github.com/dlebauer/e377cd3f53b2fa84809be30247737ba4
--->
-
-
-
-```{r se-map, include = TRUE, fig.margin = TRUE, fig.cap = "Location of the Maricopa Agricultural Center", out.width='100%'}
-knitr::include_graphics('results/figures/site_location_se_us.png')
-```
-
-```{r field-map, include = TRUE, fig.margin = TRUE, fig.cap = "Location of the Field Scanner Field relative to the USDA Arid Land Agricultural Research Center (top right) and Maricopa Agricultural Center (bottom right)", out.width='100%'}
-knitr::include_graphics('results/figures/gantry_field.png')
-```
-
-The location of the field site is shown in figures \@ref(fig:se-map) and \@ref(fig:field-map).
 
 ## Data Use, Sharing, and Access
+
+In addition to the datasets provided in this repository and on Globus, there are instructions for using these data in the documentation.
+
+The TERRA REF documentation is hosted at docs.terraref.org. The section "How to Access Data" (https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a pdf copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+
+There are tutorials for getting started with terraref data available at `terraref.org/tutorials` and on github at github.com/terraref/tutorials.
+
+The TERRA REF YouTube channel hosts 1) video walkthroughts of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
 
 All data is released to the public domain under the CC-0 license. All original software is licensed with the BSD-3 clause or MIT/BSD compatible license. All software used for data processing has been archived on Zenodo and is available on GitHub in the terraref organization.
