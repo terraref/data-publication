@@ -1,12 +1,15 @@
 
 ## Genomics Data
 
+Currently available genomics data has known errors. Publication of these data is pending correction of these errors.
+
 The Biomass Association Panel planted in Seasons 4 and 6 was described by @brenton2016. These genotypes have been sequenced and the sequence data and snps are available on the CyVerse data store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref.
 
-The genomics dataset includes raw and derived sorghum genome sequencing data from the Transportation Energy Resources from Renewable Agriculture Phenotyping Reference Platform (TERRA-REF) project (http://terraref.org/). Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing. See the README.txt and DATA_USE_POLICY.md for more information. TERRA-REF is under development, and November 15 2017 marks the beta release. To request early access to these data sources and to recieve notifications and updates, please fill out the beta-user application at http://terraref.org/data/.
+The genomics dataset includes raw and derived sorghum genome sequencing data from the Transportation Energy Resources from Renewable Agriculture Phenotyping Reference Platform (TERRA-REF) project (http://terraref.org/). Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
 
-The data is structured as follows:
- 
+The genomics data is structured as follows:
+
+```
 |-terraref
 |  |-genomics
 |  |  |-raw_data
@@ -21,6 +24,7 @@ The data is structured as follows:
 |  |  |  |-ril
 |  |  |  |  |-gbs
 |  |  |  |  |  |-kansas_state
+```
  
 ### Whole-genome resequencing data for the sorghum Bioenergy Association Panel (BAP)
  
@@ -34,25 +38,24 @@ data directory. See: https://de.cyverse.org/de/?type=data&folder=/iplant/home/sh
  
 Each table contains the following fields:
  
-identifier: the unique genotype ID that will be used in the derived data outputs
-accession: genotype identifier used by TERRA REF
-taxid: Taxonomy ID from the NCBI taxonomy database (https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
-organism common name: Genbank common name from the NCBI taxonomy database (https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
-subspecific genetic lineage rank: cultivar
-subspecific genetic lineage name: Unique germplasm identifier 
-ploidy: Source, Phytozome (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
-number of replicons: Number of chromosomes (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
-estimated size: Estimated genome size (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
-source material identifiers: UUID from Genesys (https://www.genesys-pgr.org)
-sample name: Internal sample identifier
-raw file 1: File name for read-pair 1
-raw file 2: Filename for read-pair 2
+* identifier: the unique genotype ID that will be used in the derived data outputs
+* accession: genotype identifier used by TERRA REF
+* taxid: Taxonomy ID from the NCBI taxonomy database (https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
+* organism common name: Genbank common name from the NCBI taxonomy database (https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
+* subspecific genetic lineage rank: cultivar
+* subspecific genetic lineage name: Unique germplasm identifier 
+* ploidy: Source, Phytozome (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
+* number of replicons: Number of chromosomes (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
+* estimated size: Estimated genome size (https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
+* source material identifiers: UUID from Genesys (https://www.genesys-pgr.org)
+* sample name: Internal sample identifier
+* raw file 1: File name for read-pair 1
+* raw file 2: Filename for read-pair 2
  
 #### Derived data
  
 Data derived from analysis of the raw resequencing data at the Danforth Center (version1)
-are available as gzipped, genotyped variant call format (gVCF) files and the final 
-combined hapmap file. See: https://de.cyverse.org/de/?type=data&folder=/iplant/home/shared/terraref/genomics/derived_data/bap/resequencing/danforth_center/version1
+are available as gzipped, genotyped variant call format (gVCF) files and the final combined hapmap file. This is in the directory derived_data/bap/resequencing/danforth_center/version1 directory.
  
 ### Genotyping-by-sequencing (GBS) data for sorghum recombinant inbred lines (RIL)
  
@@ -60,9 +63,8 @@ combined hapmap file. See: https://de.cyverse.org/de/?type=data&folder=/iplant/h
  
 Raw data are in gzip FASTQ format. 768 samples are available.
  
-A key file (Key_ril_terra) with sample information can be found in the raw data directory. 
-See: https://de.cyverse.org/de/?type=data&folder=/iplant/home/shared/terraref/genomics/raw_data/ril/gbs
+A key file (Key_ril_terra) with sample information can be found in the raw data directory: raw_data/ril/gbs
  
 #### Derived data
  
-Combined genotype calls are available in VCF format. See: https://de.cyverse.org/de/?type=data&folder=/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1
+Combined genotype calls are available in VCF format. derived_data/ril/gbs/kansas_state/version1
