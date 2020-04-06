@@ -1,7 +1,95 @@
 ## Phenomics
 
+### Data
+
+#### Raw Phenotype data
+
+Tables of phenotypes can be found in the folders `data/raw/season_4_traits/` and `data/raw/season_6_traits/`. These directories contain one csv file for each combination of trait and measurement method. The names of these csv files help identify the contents because they follow the pattern  `[season][trait][measurement_type].csv`. For example, the file `season_6_aboveground_biomass_manual.csv` contains manual measurements of aboveground biomass taken during Season 6.
+
+These csv files have one measurement per row for a specific date, location, genotype, and measurement. The first line contains the names of the fields:
+
+* plot
+* lat
+* lon
+* scientificname
+* genotype
+* treatment
+* date: (char)
+* time: provided for sensor derived data
+* year: (integer): year of observation
+* month: (integer): month of observation
+* trait: (text) name of the trait measured. Defined in the file `metadata/variables.csv`
+* method: (text) the method used to measure the trait. Defined in the file `metadata/methods.csv` 
+* mean: (numeric) value of the phenotype data
+* checked: (boolean) 0 = unchecked and 1 = checked
+* notes: any additional information
+* author: (text) name of scientist who collected the data or who wrote the algorithm used to derive phenotypes from sensor data
+* season: (integer) season 4 or season 6
+* method_type: (boolean) manual or sensor derived
+
+```{r}
+library(dplyr)
+
+s4 <- list()
+for (f in dir("data/raw/season_4_traits/", full.names = TRUE, pattern = 'csv')){
+  s4[[f]] <- readr::read_csv(f)
+}
+
+s4 <- dplyr::bind_rows(s4) %>% 
+  mutate(season = 'Season 4')
+
+s6 <- list()
+for (f in dir("data/raw/season_6_traits/", full.names = TRUE, pattern = 'csv')){
+  s6[[f]] <- readr::read_csv(f)
+}
+
+s6 <- dplyr::bind_rows(s6) %>% 
+  mutate(season = 'Season 6')
+
+s46 <- dplyr::bind_rows(s4, s6)
+
+s46_subset <- s46 %>% 
+  dplyr::select(plot, scientificname, genotype, season, treatment, date, trait, method, method_type, mean, checked, author) 
+
+trait_counts <- s46_subset %>% 
+  group_by(season, trait, method_type) %>% 
+  tally()
+
+```
+
+
+#### Trait Counts By Season
+
+The number of trait records collected in each season by different methods is shown below:
+
+**Season 4**
+
+```{r s4_counts, include=TRUE}
+trait_counts %>% 
+  filter(season == "Season 4") %>% 
+  ungroup() %>% 
+  select(-season) %>% 
+  knitr::kable(format = 'markdown',  
+               format.args = list(big.mark = ","),
+               caption = 'Number of observations collected in Season 4') 
+```
+
+**Season 6**
+
+```{r s6_counts, include=TRUE}
+trait_counts %>% 
+  filter(season == "Season 6") %>% 
+  ungroup() %>% 
+  select(-season) %>% 
+  knitr::kable(format = 'markdown', 
+               format.args = list(big.mark = ","),
+               caption = 'Number of observations collected in Season 4') 
+```
+
 ### Code
 
+For the purposes of reproducibility, the code used to run and query data from a copy of the TERRA REF trait database (terraref.org/bety) is provided. This uses Docker to run the database and R to query the data and prepare the csv files. The `code/` directory contains the following:
 
+* R script `s4s6_sql2csv.R` that connects to the database and generates the phenomics data files described above.
+* `betydb_docker/` folder that contains files named `Docker` and `docker-compose.yml` that allow a user to run the PostgreSQL database following instructions in the `README.md` file. This can be queried using the included script or from any programming language using the credentials stored in the file `.pgpass`.
 
-### Data
