@@ -1,0 +1,92 @@
+label,name,description,units,notes
+Dry Biomass,aboveground_dry_biomass,Aboveground Dry Biomass,kg / ha,"CO_324:0000545
+
+The whole above ground biomass expressed on dry matter (field) basis that was harvested per unit area."
+Moisture Content,aboveground_biomass_moisture,Whole above ground biomass moisture content,%,CO_324:0000564 Whole above ground biomass moisture content
+Panicle Height,panicle_height,height to top of panicle,cm,Height of the top of the inflorescence panicle
+Canopy Height,canopy_height,"top of the general canopy of the plant, discounting any exceptional branches, leaves or photosynthetic portions of the inflorescence.",cm,"p 175 of Pérez-Harguindeguy et al 2013 New handbook for standardised measurement of plant functional traits worldwide. Australian Journal of Botany, 61, 167–234
+
+http://www.publish.csiro.au/?paper=BT12225
+
+doi:10.1071/BT12225"
+Stalk Diameter fixed height,stalk_diameter_fixed_height,Diameter of the stalk in the internodal area nearest to the given measurement height,mm,Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.
+Flavonol Index,flavonol_index,"Flavonol content in the leaf epidermis, expressed as a relative index [Log(NIR fluo. excited red/NIR fluo. excited UV-A)]",ratio,Flavonol index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter.  See: http://www.dynamax.com/images/uploads/papers/Dualex.pdf
+Nitrogen Balance Index,NBI_nitrogen_balance_index,NBI (nitrogen balance index) is a relative measure of nitrogen status (Chl/Flav ratio) related to Nitrogen/Carbon allocation,ratio,Nitrogen balance index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter.  NBI is a trademark indicator of nitrogen deficiency.  See: http://www.dynamax.com/images/uploads/papers/Dualex.pdf
+Leaf Angle Mean ,leaf_angle_mean,,normalized degrees,"Store leaf_angle_variance as a statistic for leaf_angle_mean; min = 0, max = 1."
+Leaf Angle Alpha,leaf_angle_alpha,,,"min = 0, max = 10;"
+Leaf Angle Beta,leaf_angle_beta,,,"min = 0, max = 10;"
+Stalk Diameter Major Axis,stalk_diameter_major_axis,"Diameter of the widest axis of the stalk in the internodal area below the most recent fully developed leaf, including the true stem and leaf sheath",mm,Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.
+Leaf Angle Chi,leaf_angle_chi,,,"min = 0, max = 10;"
+Lodging Presence,lodging_present,"Plant lodging: presence or absence of lodging or severe leaning within a plot. 1 = present, 0 = absent. Sorghum Crop Ontology Identifier CO_324:0000283.",binary,
+Basal Tiller Number,plant_basal_tiller_number,Sorghum Crop Ontology Identifier CO_324:0000040. Number of basal tillers.,,
+Seedlings Per Plot,emergence_count,number of plants counted within plot or subplot during emergence. Sorghum Crop Ontology Identifier CO_324:0000486 http://www.cropontology.org/terms/CO_324:0000486/Plant%20number%20-%20Counting/static-html?language=english,,"CO_324:0000177
+"
+Stalk Diameter Minor Axis,stalk_diameter_minor_axis,"Diameter of the thinnest axis of the stalk in the internodal area below the most recent fully developed leaf, including the true stem and leaf sheath",mm,Stalk diameter measurements taken on marked plants for repeat and multiple measures on the same plants over time.
+Harvest Lodging Rating,harvest_lodging_rating,Categorical rating of lodging severity at harvest. 0 = none; 1 = light to moderate lodging; 2 = severe lodging,,Rapid visual assessment at the time of harvest.  Some of the lodging observed at harvest may have occurred during the time after irrigation was terminated to allow the ground to dry for harvest equipment access. 
+Ratio of Dry to Fresh Weight,dry_matter_fraction,Ratio of dry weight to fresh weight,ratio,
+Stomatal Conductance,leaf_stomatal_conductance,"Stomatal conductance is a function of the density, size, and open versus closed status of stomatal pores in the leaf.",mmol/(m² s),"Measured using a leaf porometer (Decagon SC-1) that puts the conductance of a leaf in series with two known conductance elements and compares the humidity measurements between them.  A newer porometer unit was used in 2017 sorghum season 4, with a recent factory calibration certificate.  In 2017 all measurements were made with desiccant and following the suggested sensor head calibration procedures. 
+http://manuals.decagon.com/Manuals/10711_Leaf%20Porometer_Web.pdf"
+Anthocyanin Index,anthocyanin_index,"Anthocyanin content in the leaf epidermis, expressed as a relative index [Log(NIR fluo. excited red/NIR fluo. excited green)]",ratio,Anthocyanin index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter.  See: http://www.dynamax.com/images/uploads/papers/Dualex.pdf
+Leaf Temperature,leaf_temperature,temperature of the surface of a sunlit leaf,K,"Typically 6 sub-sample measurements were taken within a plot, 3 of which were taken in each of the West and East subplot rows. "
+Seedling Emergence Rate,seedling_emergence_rate,Seedling emergence rate,ratio,Emerged seedlings counted manually by subplot row. Seed drop counts recorded by Kincaid precision planter laser counter during planting. Planted length of each subplot row approximately 3.5 meters. 
+Days to Grain Stage,grain_stage_time,Number of days from sowing to the date when grain development was observed in approximately 50% of the plants within a plot,days,
+Days to Flag Leaf Emergence,flag_leaf_emergence_time,"Number days from sowing to the date when 50% of the plants in a plot have reached flag leaf emergence (ligulation) stage. Flag leaf is the last leaf to emerge from the whorl, positioned directly below the panicle.",days,http://www.cropontology.org/rdf/CO_324:0000274
+Days to Flowering,flowering_time,"Number of days from sowing to the date when 50% of the plants in a plot reach flowering (anthesis), defined as the time when 50% of the anthers on 50% of the plants in a plot have emerged.",days,"http://www.cropontology.org/rdf/CO_324:0000027  
+ The yellow anthers first appear at the panicle tip and appear incrementally downward on the panicle, generally over a number of days."
+Absorbance at 650 nm,absorbance_650,Absorbance at 650 nm,arbitrary absorbance units,"Measurement only recorded if it falls within narrow acceptance range. 
+ MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0 "
+Chlorophyll Index,chlorophyll_index,"Leaf chlorophyll content, expressed as a relative index [(NIR trans. - Red trans.)/Red trans.]",ratio,Chlorophyll index is one of 4 measured indices reported by the Dualex Scientific+ handheld leaf-clip meter.  See: http://www.dynamax.com/images/uploads/papers/Dualex.pdf
+Number of Seeds Planted,planter_seed_drop,Number of seeds dropped per planted length of subplot row during planting,count,From planter file recorded by Kincaid precision planter laser counter and associated planter software.  Planted length of each subplot row approximately 3.5 meters. 
+Panicle Count,panicle_count,,count,"min = 0, max = 1000;"
+Canopy Cover,canopy_cover,Fraction of ground covered by plant,%,
+Fresh Biomass,aboveground_fresh_biomass,Fresh Biomass,kg / ha,"CO_324:0000556
+
+The whole above ground biomass expressed fresh (field) basis that was harvested per unit area."
+Absorbance at 850nm,absorbance_850,Absorbance at 850 nm,%,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Panicle Volume,panicle_volume,,mm3,"min = 0, max = 1000000"
+Panicle Surface Area,panicle_surface_area,,mm2,"min = 0, max = 1000000;"
+Roll Angle of Instrument,roll,The angle that the handheld instrument is held along the long axis,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0  
+Absorbance at 530nm,absorbance_530,Absorbance at 530 nm,arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+gH+,gH+,Photosynthesis-related parameter describing proton motive force and activity of ATP synthase,,"MultispeQ v1.0 measurement. ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0"
+Absorbance at 730nm,absorbance_730,Absorbance at 730 nm,arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Fs Fluorescence at Steady State,Fs,Photosynthesis-related parameter describing variable fluorescence at steady-state conditions,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+PhiNO,PhiNO,"Chlorophyll fluorescence-derived photosynthesis parameter, ratio of incoming light lost via non-regulated processes",,MultispeQ v1.0 measurement. PhiNO is the combination of a number of unregulated processes whose by-products can inhibit photosynthesis or be harmful to the plant.   https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+PhiNPQ,PhiNPQ,"Chlorophyll fluorescence-derived photosynthesis parameter, ratio of incoming light that goes towards non-photochemical quenching",,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0  
+Absorbance at 605nm,absorbance_605,Absorbance at 605 nm,arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Absorbance at 880nm,absorbance_880,Absorbance at 880 nm,arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Absorbance at 940nm,absorbance_940,Absorbance at 940 nm,arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+"Chlorophyll Fluorescence Decrease Ratio, RFd",RFd,"Chlorophyll fluorescence decrease ratio, photosynthesis parameter described as an index of vitality",ratio,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+"qP Photochemical Quenching, qP",qP,"Photosynthesis-related parameter, a photochemical quenching coefficient",,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+NPQt Non Photochemical Quenching,NPQt,"Photosynthesis-related parameter, estimate of non-photochemical quenching",,"Tietz S et al. 2017. Plant, Cell and Environment 40: 1243-1255.  MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0  "
+"Fraction of PSII Open, qL",qL,"Photosynthesis-related parameter, estimate of the fraction of Photosystem II centers that are in the open state",,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Pitch Angle of Instrument,pitch,The angle that the handheld instrument is held along the short axis,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Ambient Humidity,ambient_humidity,Ambient relative humidity near the plant canopy,%,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Leaf Angle,leaf_angle_clamp_position,Angle of the leaf at the position where the handheld clamp is placed for measurements,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Proximal Air Temperature,proximal_air_temperature,Air temperature measured by handheld sensor near the leaf surface and proximal to the plant canopy,C,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+FvP/FmP,FvP/FmP,Fluorescence parameter associated with Photosystem II operating efficiency,,MultispeQ v1.0 measurement.  Calculation of FvP/FmP requires determination of FoPrime.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Leaf Thickness,leaf_thickness,Leaf thickness estimate,mm,MultispeQ v1.0 measurement.  Leaf thickness is measured using a Hall Effect sensor on the main body of the instrument and a magnet on the clamp body.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+FmPrime,FmPrime,Photosynthesis-related parameter describing maximum variable fluorescence at steady-state conditions,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+FoPrime,FoPrime,Photosynthesis-related parameter describing minimum variable fluorescence during dark phase after steady-state,,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+"ATP Synthase Photon Flux, vH+",vH+,"Rate of flux describing max rate of protons exiting the ATP synthase, a photosynthesis-related parameter describing proton motive force",,"MultispeQ v1.0 measurement. ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0"
+Leaf - Air Temperature Difference,leaf_temperature_differential,Difference between the leaf temperature and the ambient air temperature,C,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Electrochemical Shift ECSt,ECSt,Electrochromic shift: a photosynthesis-related parameter describing proton motive force,,"MultispeQ v1.0 measurement.  ECSt, vH+, and gH+ describe the accumulation of protons in the thylakoid and their flow through ATP synthase which converts ADP to ATP. https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0"
+"Quantum Yield of PSII, Phi2",Phi2,Chlorophyll fluorescence-derived photosynthesis parameter related to quantum yield of Photosystem II,,MultispeQ v1.0 measurement. Describes the percentage of incoming light (excited electrons) that go into Photosystem II.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Relative Chlorophyll Content,relative_chlorophyll,"Relative value describing the concentration of chlorophyll in the leaf, ranges from 0 to 80",,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0  
+Absorbance at 420nm,absorbance_420,Absorbance at 420 nm,arbitrary absorbance units,Measurements are only recorded if within a narrow acceptance window.  MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Surface temperature,surface_temperature,Surface temperature,C,"Basaed on Climate Forecasting (CF) conventions ""The surface called ""surface"" means the lower boundary of the atmosphere; the temperature at the interface, not the bulk temperature of the medium above or below""
+
+For measurements made with infrared thermal radiometer (like FLIR) this variable surface_temperature should be used, not canopy_temperature or soil_temperature or leaf_temperature."
+Photosynthetically Active Radiation,light_intensity_PAR,Photosynthetically active radiation. Fraction of incoming light (400 - 700 nm) which can be intercepted by leaf,,MultispeQ v1.0 measurement. A function of the specific position of the handheld instrument.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Linear Electron Flux,LEF,Linear electronic flux: total flow of electrons from antennae complexes into Photosystem II,µmol electrons m-1 s-1,MultispeQ v1.0 measurement.  Calculated as LEF = Phi2 x PAR x 0.42.    https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Stand Count,stand_count,"Number of plants per subplot or plot, counted after thinning",count,"Number of plants counted within a subplot or plot. Also referred to as plant number in sorghum crop ontology (Identifier CO_324:0000485, http://www.cropontology.org/ontology/CO_324/Sorghum). "
+Leaf Width,leaf_width,width of leaf at widest point along leaf,mm,"min = 0, max = 2000;"
+Leaf Dessication Presence,leaf_desiccation_present,"Presence or absence of leaves showing desiccation. 1 = present, 0 = absent",,Desiccation defined as premature cell death in younger leaves associated with injury or stress as opposed to senescence.  
+Leaf Length,leaf_length,Length of leaf from tip to stem along the midrib.,mm,"min = 0, max = 25000; max from record longest leaf"
+SPAD Absorbance at 420 nm,SPAD_420,"Relative measure of leaf greenness, based on absorbance at 420 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 530 nm,SPAD_530,"Relative measure of leaf greenness, based on absorbance at 530 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 605 nm,SPAD_605,"Relative measure of leaf greenness, based on absorbance at 605 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 650 nm,SPAD_650,"Relative measure of leaf greenness, based on absorbance at 650 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 730 nm,SPAD_730,"Relative measure of leaf greenness, based on absorbance at 730 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 850 nm,SPAD_850,"Relative measure of leaf greenness, based on absorbance at 850 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+SPAD Absorbance at 880 nm,SPAD_880,"Relative measure of leaf greenness, based on absorbance at 880 nm",arbitrary absorbance units,MultispeQ v1.0 measurement.  https://photosynq.org/protocols/leaf-photosynthesis-multispeq-v1-0
+Elongated Internode Number,stem_elongated_internodes_number,Sorghum Crop Ontology Identifier CO_324:0000235. Number of elongated internodes on the main stem.,count,
