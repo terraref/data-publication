@@ -8,4 +8,6 @@ bookdown::pdf_document2:
   keep_tex: yes
   fig_caption: yes
   toc: true
+  number_sections: false
+  pandoc_args: --top-level-division=section # https://pandoc.org/MANUAL.html#options
 bookdown::tufte_book2: default
