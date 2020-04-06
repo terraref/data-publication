@@ -8,6 +8,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This describes the TERRA REF public data release"
+geometry: margin=1in
 ---
 
 ```{r include = FALSE}
