@@ -8,19 +8,43 @@
   * Center of the field: -111.9749 latitude and 33.07549 longitude
   * Field is 200 m by 20 m
 * Keywords: Sensor, Phenomics, Sorghum, TERRA-REF
-* Funding: The work presented herein was funded in part by the Advanced * Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000598.
+* Funding: The work presented herein was funded in part by the Advanced Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000598. Computational support was provided by the National Center for Supercomputing Applications and XSEDE.
 
-The data pipeline used to process sensor data and generate was described in @burnette2018. 
-
+The data pipeline used to process sensor data and generate was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure". 
 
 ## Data Use, Sharing, and Access
 
 In addition to the datasets provided in this repository and on Globus, there are instructions for using these data in the documentation.
 
-The TERRA REF documentation is hosted at docs.terraref.org. The section "How to Access Data" (https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a pdf copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+The TERRA REF documentation is hosted at docs.terraref.org. The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a pdf copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
 
 There are tutorials for getting started with terraref data available at `terraref.org/tutorials` and on github at github.com/terraref/tutorials.
 
 The TERRA REF YouTube channel hosts 1) video walkthroughts of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
 
-All data is released to the public domain under the CC-0 license. All original software is licensed with the BSD-3 clause or MIT/BSD compatible license. All software used for data processing has been archived on Zenodo and is available on GitHub in the terraref organization.
+All data is released to the public domain under the CC-0 license. All original software is licensed with the BSD-3 clause or MIT/BSD compatible license. All software used for data processing has been archived on Zenodo and is available on GitHub in the terraref organization: github.com/terraref.
+
+The were created specifically for this pipeline. Development of new components continues at github.com/agpipelines.   
+
+| Component                     | Github Organization / Repository                 | Archive Citation            |
+|------------------------------|-----------------------------------|-----------------------------|
+| TERRA REF Documentation      | terraref/documentation            | @david_lebauer_2020_3661373 |
+| Reference Data               | terraref/reference-data           | @david_lebauer_2020_3635863 |
+| Sensor Metadata              | terraref/sensor-metadata          | @craig_willis_2020_3635853  |
+| Computing Pipeline           | terraref/computing-pipeline       | @max_burnette_2020_3635849  |
+| terrautils Python Library    | terraref/terrautils               | @max_burnette_2019_3406335  |
+| Metadata Processing          | terraref/extractors-metadata      | @max_burnette_2019_3406329  |
+| Laser 3D Scanner             | terraref/extractors-3dscanner     | @max_burnette_2019_3406332  |
+| Environmental Logger         | terraref/extractors-environmental | @max_burnette_2019_3406318  |
+| Hyperspectral                | terraref/extractors-hyperspectral | @jeromemao_2019_3406312     |
+| Multispectral, Thermal, PSII | terraref/extractors-multispectral | @max_burnette_2019_3406311  |
+| Stereo RGB                   | terraref/extractors-stereo-rgb    | @max_burnette_2019_3406304  |
+
+Other Software used in this project
+
+| Software |  |  | 
+|---|---|---|
+| Take from documentation | | | 
+| Clowder |  |  |
+| BETYdb  |  |  | 
+| BETYdb Trait Database        | pecanproject/bety                 | @scott_rohde_2016_48661  |

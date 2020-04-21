@@ -1,8 +1,6 @@
 
 ## Genomics Data
 
-Currently available genomics data has known errors. Publication of these data is pending correction of these errors.
-
 The Biomass Association Panel planted in Seasons 4 and 6 was described by @brenton2016. These genotypes have been sequenced and the sequence data and snps are available on the CyVerse data store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref.
 
 The genomics dataset includes raw and derived sorghum genome sequencing data from the Transportation Energy Resources from Renewable Agriculture Phenotyping Reference Platform (TERRA-REF) project (http://terraref.org/). Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
