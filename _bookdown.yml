@@ -11,10 +11,10 @@ rmd_files: [
 "content/sensors.Rmd",
 "content/phenotypes.Rmd",
 "content/environmental.Rmd",
-#"content/genomics.Rmd",
+"content/genomics.Rmd",
+"content/future.Rmd",
 #"useage_notes.md",
 #"methods.Rmd",
-#"phenotypes.Rmd",
 #"weather.Rmd"
 #"genomics.Rmd", 
 #sensor-data.Rmd",
