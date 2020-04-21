@@ -1,0 +1,68 @@
+## Environmental Data
+
+### Weather
+
+We have data from two stations, AZMet and the gantry system.
+
+
+##### Gantry System "Environment Logger"
+
+These data are from the Theis-Clima weather station mounted on the field scanner. While there are gaps, there are many variables that are otherwise not available.
+
+```{r geostreams}
+library(dplyr)
+library(ggplot2)
+library(jsonlite)
+library(lubridate)
+library(tidyr)
+s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
+
+s6_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2018-04-06&until=2018-08-01', flatten = FALSE)
+
+s4 <- data.frame(season = "Season 4", 
+                 date = ymd_hms(s4_raw$start_time),
+                 s4_raw$properties)
+s6 <- data.frame(season = "Season 6", 
+                 date = ymd_hms(s6_raw$start_time),
+                 s6_raw$properties)
+
+weather <- rbind(s4, s6) %>% 
+  dplyr::select(-starts_with('source')) %>% 
+  tidyr::pivot_longer(cols = -c(season,date))
+
+```
+
+
+```{r weather-plots, fig.height=12, eval = FALSE}
+ggplot(data = weather, aes(date, value)) +
+  geom_point(size = 0.1) +
+  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
+```
+
+##### Environment Logger
+
+These are even higher resolution time series.
+
+The files for each season are approximately 40GB and, like sensor data, are provided using methods such as Globus transfer or the Clowder API (see "How To Access Data" in the [documentation](https://docs.terraref.org/user-manual/how-to-access-data)). On Globus, they are in the `/ua-mac/Level_1/envlog_netcdf/`
+
+The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
+
+The primary reason that these files are so large is that they contain 
+Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`
+
+On Globus, each date will include hourly files named `YYYY-MM-DD_HH-MM-SS_environmentlogger.nc` as well as a single daily file named `envlog_netcdf_L1_ua-mac_YYYY-MM-DD.nc` that contains the same information:
+
+```{r}
+data_dir <- '~/data/ua-mac/Level_1/envlog_netcdf/'
+daily_ncfiles <- dir(data_dir, 
+                     recursive = TRUE, 
+                     pattern = 'envlog_netcdf_L1')
+
+```
+
+
+
+
+### Soils Data
+
+A comprehensive analysis of soil physical properties will be published alongside the terraref datasets [@babaeian2020].

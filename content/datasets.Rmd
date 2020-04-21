@@ -8,15 +8,4 @@ Data Types:
 3. Environmental data: Time series of meteorological variables including temperature, relative humidity, precipitation, wind direction and speed, photosynthetically active radiation, and downwelling spectral radiance.
 4. Genomics: including at least 400 novel sequences and outputs from GWAS and related analyses. Contains raw and derived sorghum genome sequencing data. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
 
-## Sensor Data
 
-
-
-## Phenotypes
-
-## Environmental Data
-
-
-### Soils Data
-
-A comprehensive analysis of soil physical properties will be published alongside the terraref datasets [@babaeian2020].
