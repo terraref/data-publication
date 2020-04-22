@@ -7,7 +7,7 @@ We have data from two stations, AZMet and the gantry system.
 
 #### Gantry System "Environment Logger"
 
-These data are from the Theis-Clima weather station mounted on the field scanner. This sensor provides a suite of additional measurements, including Y frequency measurements of each parameter, and X resolution of the downwelling the solar spectra. The sensors and data collection frequency are described in the section on sensor data. We describe both the full resolution data provided as netcdf files in the sensor data product named "envlog_netcdf" and the 5 minute aggregated data provided here as json files that were accessed using the geostreams API as described in the TERRA REF tutorials.
+These data are from the Theis-Clima weather station mounted on the field scanner. This sensor provides a suite of additional measurements, including Y frequency measurements of each parameter, and X resolution of the downwelling the solar spectra. The sensors and data collection frequency are described in the section on sensor data. We describe both the full resolution data provided as netcdf files in the sensor data product named "envlog_netcdf" and the 5 minute aggregated data provided here as json files that were accessed using the geostreams API as described in the TERRA REF tutorials. These time series are not continuous \@ref(fig:aggregated-weather-dates)
 
 ##### Environment Logger Aggregated JSON files
 
@@ -21,12 +21,12 @@ library(ggplot2)
 library(jsonlite)
 library(lubridate)
 library(tidyr)
-#s4_raw <- fromJSON('../metadata/weather/envlog_aggregated/season_4_envlog.json', 
-#                   flatten = FALSE)
-s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
-#s6_raw <- fromJSON('../metadata/weather/envlog_aggregated/season_6_envlog.json', 
-#                   flatten = FALSE)
-s6_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2018-04-06&until=2018-08-01', flatten = FALSE)
+s4_raw <- fromJSON('metadata/weather/envlog_json/season_4_envlog.json', 
+                   flatten = FALSE)
+# s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
+s6_raw <- fromJSON('metadata/weather/envlog_json/season_6_envlog.json', 
+                   flatten = FALSE)
+
 
 s4 <- data.frame(season = "Season 4", 
                  date = ymd_hms(s4_raw$start_time),
@@ -37,24 +37,35 @@ s6 <- data.frame(season = "Season 6",
 
 weather <- rbind(s4, s6) %>% 
   dplyr::select(-starts_with('source')) %>% 
-  tidyr::pivot_longer(cols = -c(season,date))
+  tidyr::pivot_longer(cols = -c(season,date)) %>% 
+  mutate(label = recode(name, 
+                        northward_wind = "Wind (N)",
+                        eastward_wind = "Wind (E)",
+                        wind_speed = "Wind",
+                        precipitation_rate = "Precipitation",
+                        surface_downwelling_photosynthetic_photon_flux_in_air =
+                          "Photosynthetically Active Radiation",
+                        surface_downwelling_shortwave_flux_in_air = "VNIR Solar Radiation",
+                        relative_humidity = "Relative Humidity",
+                        air_temperature = "Air Temperature"))
+
 
 ```
 
 
-```{r weather-plots, fig.height=12, eval = FALSE}
+```{r aggregated-weather-dates, include = TRUE, warning=FALSE, fig.cap='Dates of aggregated weather data - avaialable through the Geostreams API and in the `metadata/weather` folder.', fig.height=8}
 #ggplot(data = weather, aes(date, value)) +
 #  geom_point(size = 0.1) +
 #  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
 
-weather_long <- weather %>%  group_by(season, date, name) %>% 
+weather_long <- weather %>%  group_by(season, date, label) %>% 
   tally()
 
 plots <- list()
 for(s in unique(weather_long$season)){
   
   plots[[s]]  <- ggplot(data = weather_long %>% filter(season == s)) + 
-    geom_point(aes(date, name)) +
+    geom_point(aes(date, label), size = 0.5) +
     #scale_alpha(name = "Number of records", trans = 'log10') + #, breaks = 10^(0:4))+
     #scale_size_area(trans = 'log10', 
     #                max_size = 1
@@ -62,7 +73,7 @@ for(s in unique(weather_long$season)){
     #                ) +
     scale_x_datetime(date_labels = '%b %Y') +
     #  facet_grid(rows = vars(as.factor(season)), scales = 'free', space = "free") +
-    ylab("Phenotype") +
+    ylab("Variable") +
     # ggthemes::theme_tufte() + 
     theme_minimal() 
     # theme(axis.text.y = element_text(size = 5),
@@ -85,7 +96,7 @@ cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1)
 
 These are even higher resolution time series.
 
-The files for each season are approximately 40GB and, like sensor data, are provided using methods such as Globus transfer or the Clowder API (see "How To Access Data" in the [documentation](https://docs.terraref.org/user-manual/how-to-access-data)). On Globus, they are in the `/ua-mac/Level_1/envlog_netcdf/`
+The files for each season are approximately 40GB and, like sensor data, are provided using methods such as Globus transfer or the Clowder API (see "How To Access Data" in the [documentation](https://docs.terraref.org/user-manual/how-to-access-data)). On Globus, they are in the `/ua-mac/Level_1/envlog_netcdf/`.
 
 The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
 
@@ -127,7 +138,12 @@ PAR <- c(vals, metdata$`par_sensor/Sensor_Photosynthetically_Active_Radiation`)
 
 ### AZMET
 
-@Brown1996azmet
+These gap-filled and corrected data have been provided for convenience. **It is require to cite** @Brown1996azmet:
+> Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/" when using these data. 
+
+Both hourly and daily values are available, and can be found in the `metadata/weather/azmet` folder. There are four csv files - one daily and one hourly for each season, and a README that provides a description of their content. These files have not been modified from the website other than to subset it to the time range of the two seasons of observations.
+
+
 
 ### Soils Data
 

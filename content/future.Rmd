@@ -1,7 +1,14 @@
 ## Future Releases
 
+This data release does not contain all of the data that was collected during the TERRA REF project. Raw data and some derived products are available from the entire project that is available for use, but has not been processed and validated. The field scanner was operated as part of the TERRA REF program from April 2016 to September of 2019.
 
-#### Additional Seasons
+For the first public release of data we have focused on a subset of the data that we collected, processed, and performed QA/QC on. We expect that this initial data release and subsets of these data curated for specific research projects will provide users and funders with sufficient information to justify processing, validating, and storing data from additional seasons and sensors.
+
+All raw data _are_ available, but are not in the public domain. That means that any use of datasets other than those made available under the CC0 license must adhere to the data use and authorship guidelines outlined in the documentation.
+
+Pipeline development continues in a new GitHub organization, github.com/agpipelines. Current development is focused on supporting ongoing projects, but should make future re-processing easier and more reliable.
+
+### Additional Seasons
 
 | Season | Crop        | Experiments              | Populations                           | Planting Date | Harvest    |
 |--------|-------------|--------------------------|---------------------------------------|---------------|------------|
@@ -18,7 +25,8 @@
 
 table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Panel, SAP = Sorghum Association Panel, Uniformity Trial = same lines planted in strips across field. In season 9 a second field 'North ' was added, and separate trials were conducted."
 
-#### Additional Sensors {#future-sensors}
+### Additional Sensors {#future-sensors}
+
 | Sensor Name                    | Model                                                                                                                                  | Technical Specifications                                                                                              |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | **Multi-spectral Radiometers** |                                                                                                                                        |                                                                                                                       |
@@ -32,8 +40,3 @@ table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Pane
 | **Environmental**              |                                                                                                                                        |                                                                                                                       |
 | SWIR Spectrometer              | [Spectral Evolution PSR+](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)                                | Range 800-2500nm; Installed 2018                                                                                      |
 | Open Path CO2 Sensor           | GMP 343                                                                                                                                | Range: 0-1000 ppm                                                                                                     |
-
-
-#### Future Data Processing
-
-#### New Derived Products

@@ -14,6 +14,9 @@ The data pipeline used to process sensor data and generate was described in the 
 
 ## Data Use, Sharing, and Access
 
+
+To cite this data: ... 
+
 In addition to the datasets provided in this repository and on Globus, there are instructions for using these data in the documentation.
 
 The TERRA REF documentation is hosted at docs.terraref.org. The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a pdf copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.

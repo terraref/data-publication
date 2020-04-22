@@ -70,10 +70,12 @@ sensors_long <- sensors %>%
          season = paste("Season", season))
 
 # dummy rows to get equal date axes
-sensors_long <- rbind(sensors_long,
-      data.frame(season = c("Season 4", "Season 4", "Season 6", "Season 6"),
-           date = lubridate::ymd(c('2017-04-01', '2017-09-30', '2018-04-01', '2018-09-30')),
-           name = "RGB", value = 0))
+sensors_long <- sensors_long %>% 
+  #rbind(
+  #data.frame(season = c("Season 4", "Season 4", "Season 6", "Season 6"),
+  #           date = lubridate::ymd(c('2017-04-01', '2017-09-30', '2018-04-01', '2018-09-30')),
+  #           name = "RGB", value = 0)) %>% 
+  mutate(value = ifelse(value == 0, NA, value))
 
 
 ```
@@ -84,8 +86,9 @@ Figure \@ref(fig:sensor-file-counts) shows the number of files for each data typ
 ```{r sensor-file-counts, include = TRUE, warning=FALSE, fig.cap='counts of individual files for each type of sensor data product', fig.height=8}
 
 ggplot(data = sensors_long) + 
-  geom_point(aes(date, name)) +
+  geom_point(aes(date, name, size = value)) +
   scale_x_date(date_labels = '%b %Y') +
+  scale_size_area(trans = 'log10', max_size = 1)+#, breaks = 10^(0:4))
   facet_wrap(~season, scales = 'free', ncol = 1) +
   ylab("Data Product") +
   xlab("Date") +
