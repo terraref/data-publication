@@ -164,7 +164,7 @@ getcsv <- function(onetrait, oneseason, sensor_methods) {
     if(nrow(tmp2 > 0)){
       readr::write_csv(x = tmp2,
                        path = file.path(
-                         'data', 'raw',
+                         'data', 
                          paste0(season_string, "_traits"),
                          paste0(season_string, "_",
                                 gsub('/', '_', t), "_",

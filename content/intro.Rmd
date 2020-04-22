@@ -27,7 +27,7 @@ The TERRA REF YouTube channel hosts 1) video walkthroughts of the tutorials http
 
 All data is released to the public domain under the CC-0 license. All original software is licensed with the BSD-3 clause or MIT/BSD compatible license. All software used for data processing has been archived on Zenodo and is available on GitHub in the terraref organization: github.com/terraref.
 
-The were created specifically for this pipeline. Development of new components continues at github.com/agpipelines.   
+This software was created specifically for the field scanner data processing pipeline. The file `code/source_code_dois.txt` provides the dois for code archives that contain the state of the software at the time the data were processed. Further development has been moved to github.com/agpipelines.
 
 | Component                     | Github Organization / Repository                 | Archive Citation            |
 |------------------------------|-----------------------------------|-----------------------------|
@@ -43,11 +43,11 @@ The were created specifically for this pipeline. Development of new components c
 | Multispectral, Thermal, PSII | terraref/extractors-multispectral | @max_burnette_2019_3406311  |
 | Stereo RGB                   | terraref/extractors-stereo-rgb    | @max_burnette_2019_3406304  |
 
-Other Software used in this project
+Other Software used in this project:
+
+_Not sure how extensive to make this list_
 
 | Software |  |  | 
 |---|---|---|
-| Take from documentation | | | 
 | Clowder |  |  |
-| BETYdb  |  |  | 
 | BETYdb Trait Database        | pecanproject/bety                 | @scott_rohde_2016_48661  |
