@@ -84,13 +84,11 @@ Figure \@ref(fig:sensor-file-counts) shows the number of files for each data typ
 ```{r sensor-file-counts, include = TRUE, warning=FALSE, fig.cap='counts of individual files for each type of sensor data product', fig.height=8}
 
 ggplot(data = sensors_long) + 
-  geom_point(aes(date, name, size = value)) +
-  #scale_alpha(name = "Number of files", trans = 'log10') + #, breaks = 10^(0:4))+
-  scale_size_area(trans = 'log10', max_size = 1)+#, breaks = 10^(0:4)) +
+  geom_point(aes(date, name)) +
   scale_x_date(date_labels = '%b %Y') +
   facet_wrap(~season, scales = 'free', ncol = 1) +
   ylab("Data Product") +
-  xlab("Date of Scan") +
+  xlab("Date") +
  # ggthemes::theme_tufte() + 
   theme_minimal() +
   theme(legend.position = "bottom")

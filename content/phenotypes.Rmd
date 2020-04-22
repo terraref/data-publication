@@ -68,12 +68,12 @@ plots <- list()
 for(s in unique(traits_daily$season)){
   
   plots[[s]]  <- ggplot(data = traits_daily %>% filter(season == s)) + 
-    geom_point(aes(date, trait, color = method_type, size = n)) +
+    geom_point(aes(date, trait, color = method_type)) +
     #scale_alpha(name = "Number of records", trans = 'log10') + #, breaks = 10^(0:4))+
-    scale_size_area(trans = 'log10', 
-                    max_size = 1
-                    #breaks = 10^(0:4)
-                    ) +
+    #scale_size_area(trans = 'log10', 
+    #                max_size = 1
+    #                #breaks = 10^(0:4)
+    #                ) +
     scale_x_date(date_labels = '%b %Y') +
     #  facet_grid(rows = vars(as.factor(season)), scales = 'free', space = "free") +
     ylab("Phenotype") +
