@@ -28,18 +28,18 @@ The total size of sensor data products is X TB. These are stored on the Storage 
 
 #### Sensor Data Catalog
 
-Globus provides the easiest way to navigate the data. This archive also contains a catalog listing all of the files in the dataset. The catalog is one compressed `.zip` file per season, currently Seasons 4 and 6. The compressed catalogs are 373 MB, and expand to 5.4 GB when uncompressed. After uncompressing the `season_[n]_catalog.zip` file, the catalog contains one directory per data product and one file per day named `[data product]/file_catalog_season[n]_[data product]_[filetype]_YYYY-MM-DD.json`. 
+Globus provides the easiest way to navigate the data. This archive also contains a catalog listing all of the files in the dataset. The catalog is one compressed `.zip` file per season, currently Seasons 4 and 6, found in the `data/` directory in files named `season_[n]_catalog.zip`. The compressed catalogs are 373 MB, and expand to 5.4 GB when uncompressed. After uncompressing the catalog files, the catalog contains one directory per data product and one file per day named `[data product]/file_catalog_season[n]_[data product]_[filetype]_YYYY-MM-DD.json`. 
 
 These catalog files contain the following information in json format:
 
 ```yaml
-collections: collection name [Data Product Name] - [YYYY-MM]
-    datasets: dataset name [Data Product Name] - [YYYY-MM-DD]
+collections: 'collection name [Data Product Name] - YYYY-MM'
+    datasets: 'dataset name [Data Product Name] - [YYYY-MM-DD]'
         files: 
-            path: season-[n]/sites/ua-mac/Level_[m]/[data_product]/[filename]
-            checksum: 
-            name: [data product]_L[m]_[YYYY-MM-DD]_[Scan Name]
-            size: bytes
+            path: 'season-[n]/sites/ua-mac/Level_[m]/[data_product]/[filename]'
+            checksum: '[checksum_string]'
+            name: '[data product]_L[m]_[YYYY-MM-DD]_[Scan Name]'
+            size: 'bytes'
 ```
 
 There is one collection per data product per month, and one dataset per data product per day. This structure and naming maps to Collections and Datasets in the Clowder database and web interface (see data access documentation).
