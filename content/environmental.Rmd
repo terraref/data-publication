@@ -5,9 +5,15 @@
 We have data from two stations, AZMet and the gantry system.
 
 
-##### Gantry System "Environment Logger"
+#### Gantry System "Environment Logger"
 
-These data are from the Theis-Clima weather station mounted on the field scanner. While there are gaps, there are many variables that are otherwise not available.
+These data are from the Theis-Clima weather station mounted on the field scanner. This sensor provides a suite of additional measurements, including Y frequency measurements of each parameter, and X resolution of the downwelling the solar spectra. The sensors and data collection frequency are described in the section on sensor data. We describe both the full resolution data provided as netcdf files in the sensor data product named "envlog_netcdf" and the 5 minute aggregated data provided here as json files that were accessed using the geostreams API as described in the TERRA REF tutorials.
+
+##### Environment Logger Aggregated JSON files
+
+The files `metadata/weather/envlog_aggregated/season_[n]_envlog.json` were downloaded from the Geostreams API on April 21 2020. The API is described in the tutorials, and the specific calls used to download these files are in `code/envlog_curl.sh`.
+
+
 
 ```{r geostreams}
 library(dplyr)
@@ -15,8 +21,11 @@ library(ggplot2)
 library(jsonlite)
 library(lubridate)
 library(tidyr)
+#s4_raw <- fromJSON('../metadata/weather/envlog_aggregated/season_4_envlog.json', 
+#                   flatten = FALSE)
 s4_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2017-04-20&until=2017-09-18', flatten = FALSE)
-
+#s6_raw <- fromJSON('../metadata/weather/envlog_aggregated/season_6_envlog.json', 
+#                   flatten = FALSE)
 s6_raw <- fromJSON('https://terraref.org/clowder/api/geostreams/datapoints?stream_id=46431&since=2018-04-06&until=2018-08-01', flatten = FALSE)
 
 s4 <- data.frame(season = "Season 4", 
@@ -34,12 +43,45 @@ weather <- rbind(s4, s6) %>%
 
 
 ```{r weather-plots, fig.height=12, eval = FALSE}
-ggplot(data = weather, aes(date, value)) +
-  geom_point(size = 0.1) +
-  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
+#ggplot(data = weather, aes(date, value)) +
+#  geom_point(size = 0.1) +
+#  facet_wrap(vars(name, season), scales = 'free', ncol = 2)
+
+weather_long <- weather %>%  group_by(season, date, name) %>% 
+  tally()
+
+plots <- list()
+for(s in unique(weather_long$season)){
+  
+  plots[[s]]  <- ggplot(data = weather_long %>% filter(season == s)) + 
+    geom_point(aes(date, name)) +
+    #scale_alpha(name = "Number of records", trans = 'log10') + #, breaks = 10^(0:4))+
+    #scale_size_area(trans = 'log10', 
+    #                max_size = 1
+    #                #breaks = 10^(0:4)
+    #                ) +
+    scale_x_datetime(date_labels = '%b %Y') +
+    #  facet_grid(rows = vars(as.factor(season)), scales = 'free', space = "free") +
+    ylab("Phenotype") +
+    # ggthemes::theme_tufte() + 
+    theme_minimal() 
+    # theme(axis.text.y = element_text(size = 5),
+    #       axis.text.x = element_text(size = 8)) +
+}
+library(cowplot)
+
+plots[['Season 4']] <- plots[['Season 4']] +
+    theme(legend.position = "none") + xlab(NULL) + ggtitle("Season 4")
+
+plots[['Season 6']] <- plots[['Season 6']] +
+    theme(legend.position = "bottom") + xlab("Date of Measurement")  + ggtitle("Season 6")
+# for rel. plot widths
+
+cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1)
+
 ```
 
-##### Environment Logger
+##### Environment Logger netCDF
 
 These are even higher resolution time series.
 
@@ -58,10 +100,34 @@ daily_ncfiles <- dir(data_dir,
                      recursive = TRUE, 
                      pattern = 'envlog_netcdf_L1')
 
+library(ncdf4)
+ncfile <- nc_open(file.path(data_dir,
+                             '2017-08-21', 'envlog_netcdf_L1_ua-mac_2017-08-21.nc'))
+
+
+time <- vector()
+vals <- vector()
+metdata <- list()
+for(var in c(names(ncfile$dim), names(ncfile$var))){
+  metdata[[var]] <- ncvar_get(ncfile, var)
+}
+days <- ncvar_get(ncfile, varid = "time")
+par <- ncvar_get(ncfile, varid = 'Photosynthetically_Active_Radiation')
+
+spectral_flux <- ncvar_get(ncfile, varid = 'flx_spc_dwn')
+curr_time <- as.numeric(ymd("1970-01-01") + seconds(days * 24 * 60 * 60))
+
+time <- c(time, curr_time)
+PAR <- c(vals, metdata$`par_sensor/Sensor_Photosynthetically_Active_Radiation`)
+
+
+
 ```
 
 
+### AZMET
 
+@Brown1996azmet
 
 ### Soils Data
 
