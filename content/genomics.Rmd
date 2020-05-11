@@ -24,6 +24,19 @@ The data is structured as follows:
 |  |  |  |  |  |-kansas_state
 ```
 
+### Germplasm
+
+ A list of cultivars and the experiments in which they are planted are listed in the table below, from the file `germplasm.csv`. 
+ 
+ The `germplasm.csv` file contains the following fields:
+ 
+* **germplasmName** Genotype identifier used by TERRA REF; typically equal to Genesys Accession Number
+* **germplasmPUI** UUID from [Genesys](https://www.genesys-pgr.org)
+* **season_4** Boolean, TRUE if the accession planted in Season 4 experiments.
+* **season_6** Boolean, TRUE if the accession planted in Season 6 experiments
+ 
+For user convenience, we also provide this information as in a format that follows the Breeder's API (BrAPI) specification v1.3 @Selby2019 in files named `season_[n]_germplasm.json` as well as in the `terraref_sorghum_bap_samples.txt` table alongsid raw sequencing data (described below).
+
 ### Whole-genome resequencing data for the sorghum Bioenergy Association Panel (BAP)
 
 #### Raw data
