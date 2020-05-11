@@ -8,9 +8,12 @@ Lead / Coordinating Author: David LeBauer (dlebauer@arizona.edu)
 
 This form is for authors of the initial data publication to be submitted to Dryad and associated paper to be submitted to Nature Scientific Data. The author list is expected to be long, and inclusive of all who have made meaningful contributions as described in the "contributions warranting authorship" defined in the TERRA REF authorship guidelines: https://terraref.gitbooks.io/terraref-documentation/content/manuscripts-and-authorship.html
 
-As of May 11
+## Status 
 
-* A draft of the data and Dryad data publication are available for review. 
+**May 11 2020**
+
+* A draft of the data and [README for Dryad](https://github.com/terraref/data-publication/releases/download/v0.2/terraref-dryad.pdf) are available for review. 
+>>>>>>> draft-internal-review
 * The associated data paper to be submitted to Nature Scientific Data is being developed in the repository https://github.com/terraref/data-paper. Please contact David if you are interested in contributing to this effort.
 
 ## Opt-in Co-authorship
