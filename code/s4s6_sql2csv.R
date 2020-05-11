@@ -10,6 +10,15 @@ bety_src <- src_postgres(
   user = 'viewer',
   port = 5432
 )
+## if using docker
+# bety_src <- src_postgres(
+#   dbname = "bety",
+#   password = 'bety',
+#   host = 'localhost',
+#   user = 'bety',
+#   port = 5433
+#   )
+
 traitsview <- tbl(bety_src, 'traits_and_yields_view')
 
 setwd("~/dev/terraref-dryad/")
