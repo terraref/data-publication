@@ -33,12 +33,13 @@ library(ggplot2)
 # to query the database either use 
 # ssh -Nf -L 5432:localhost:5432 bety6.ncsa.illinois.edu 
 # to mount the database
+try(
 bety_src <- src_postgres(dbname = "bety",
                          password = 'DelchevskoOro',
                          host = 'localhost',
                          user = 'viewer',
                          port = 5432)
-
+, silent = TRUE)
 # for use with publication: after making data public 
 # cd code/betydb_docker
 # docker-compose up -d postgres

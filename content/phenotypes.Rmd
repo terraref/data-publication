@@ -7,24 +7,18 @@ Tables of phenotypes can be found in the folders compressed files `data/season_4
 
 These csv files have one measurement per row for a specific date, location, genotype, and measurement. The first line contains the names of the fields:
 
-* plot
-* lat
-* lon
-* scientificname
-* genotype
-* treatment
-* date: (char)
-* time: provided for sensor derived data
-* year: (integer): year of observation
-* month: (integer): month of observation
-* trait: (text) name of the trait measured. Defined in the file `metadata/variables.csv`
-* method: (text) the method used to measure the trait. Defined in the file `metadata/methods.csv` 
-* mean: (numeric) value of the phenotype data
-* checked: (boolean) 0 = unchecked and 1 = checked
-* notes: any additional information
-* author: (text) name of scientist who collected the data or who wrote the algorithm used to derive phenotypes from sensor data
-* season: (integer) season 4 or season 6
-* method_type: (boolean) manual or sensor derived
+* **plot** Plot name, using the format `<field site> Season <n> Range <m> Column <k>`.
+* **scientificname** Latin name for the crop species. This will be _Sorghum bicolor_ in all cases until future versions with data from additional crops is published.
+* **genotype** Genotype or accession identifier. 
+* **treatment** Name of experimental treatment.
+* **date**: (YYYY-MM-DD) Date of measurement.
+* **trait**: (text) Mame of the trait measured. Defined in the file `metadata/variables.csv`.
+* **method**: (text) The method used to measure the trait. Defined in the file `metadata/methods.csv`. 
+* **mean**: (numeric) Value of the phenotype data.
+* **checked**: (boolean) 0 = unchecked and 1 = checked: has the data been independently reviewed?
+* **author**: (text) name of scientist who collected the data or who wrote the algorithm used to derive phenotypes from sensor data.
+* **season**: (text) Name of season: one of 'Season 4' or 'Season 6'.
+* **method_type**: (text) Type of measurement: one of 'manual' or 'sensor'.
 
 ```{r}
 library(dplyr)
@@ -103,6 +97,6 @@ cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1, rel_heights = c(s4n / (s4n 
 
 For the purposes of reproducibility, the code used to run and query data from a copy of the TERRA REF trait database (terraref.org/bety) is provided. This uses Docker to run the database and R to query the data and prepare the csv files. The `code/` directory contains the following:
 
-* R script `s4s6_sql2csv.R` that connects to the database and generates the phenomics data files described above.
+* R script `s4s6_sql2csv.R` that connects to the database and generates the phenomics data files described above. This requires a copy of the database. Instructions for installing the database using Docker are found in `betydb_docker`. A much slower implementation that uses the API and the R traits package @chamberlain2019traits is provided in `code/s4s6_slow_api.R`.
 * `betydb_docker/` folder that contains files named `Docker` and `docker-compose.yml` that allow a user to run the PostgreSQL database following instructions in the `README.md` file. This can be queried using the included script or from any programming language using the credentials stored in the file `.pgpass`.
 
