@@ -12,9 +12,9 @@ rmd_files: [
 "content/phenotypes.Rmd",
 "content/environmental.Rmd",
 "content/genomics.Rmd",
+"content/future.Rmd"
 #"useage_notes.md",
 #"methods.Rmd",
-#"phenotypes.Rmd",
 #"weather.Rmd"
 #"genomics.Rmd", 
 #sensor-data.Rmd",
@@ -23,5 +23,5 @@ rmd_files: [
 #"methods.md",
 #"variables.md",
 #"germplasm.md",
-"content/references.Rmd"
+#"content/references.Rmd"
 ]
