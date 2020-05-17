@@ -40,3 +40,15 @@ table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Pane
 | **Environmental**              |                                                                                                                                        |                                                                                                                       |
 | SWIR Spectrometer              | [Spectral Evolution PSR+](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)                                | Range 800-2500nm; Installed 2018                                                                                      |
 | Open Path CO2 Sensor           | GMP 343                                                                                                                                | Range: 0-1000 ppm                                                                                                     |
+
+### New derived datasets
+
+* How will these be published?
+
+### Data Access
+
+* Search interface search.terraref.org
+
+### New Tutorials
+* Extensions of BrAPI 
+* National Ag Library
