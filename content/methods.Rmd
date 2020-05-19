@@ -1,0 +1,264 @@
+# Methods
+
+## Experimental Design
+
+The first data release contains data from two Sorghum growing seasons, the 4th and 6th seasons of the project:  
+
+```{r experiments, cache = TRUE}
+experiments <- tbl(bety_src, 'experiments') %>%
+  dplyr::select(experiment_id = id, start_date, end_date, name, description, design)
+
+experiments_subset <- experiments %>% 
+  select(experiment_id, name, Start = start_date, Harvest = end_date, Summary = description, Design = design) %>% 
+  collect() %>% 
+  filter(str_detect(name,"Season 4|Season 6")) %>% 
+  filter(str_detect(name, "Border Plots", negate = TRUE)) %>% 
+  tidyr::separate(name, c('Season', 'Experiment'), sep = ":") 
+
+experiments_treatments <- tbl(bety_src, 'experiments_treatments') %>%
+  dplyr::select(experiment_id, treatment_id)
+
+treatments <- tbl(bety_src, 'treatments') %>%
+  dplyr::select(treatment_id = id , name, definition, control)
+
+experiments_treatments_subset <- experiments_subset %>% 
+  left_join(experiments_treatments, by = 'experiment_id', copy = TRUE) %>% 
+  left_join(treatments, by = 'treatment_id', copy = TRUE)
+
+descriptions <- list()
+
+for(exp in 1:nrow(experiments_subset)){
+  season <- experiments_subset$Season[exp]
+  
+  trts <- experiments_treatments_subset %>% 
+    filter(Season == season) %>% 
+    transmute(paste0("* *", name, "*: ", definition)) %>% unlist() %>% paste(collapse = "\n")
+
+  t <- ifelse(experiments_treatments_subset %>% 
+    filter(Season == season) %>% nrow == 1, "Treatment: ", "Treatments: ")
+
+  out <- experiments_subset %>% 
+    filter(Season == season) %>% 
+    transmute( paste("\n#### ", Season, "\n\n",
+                   "* Start:", Start, "\n",
+                   "* End:", Harvest,"\n\n",
+                   t, "\n\n",
+                   Summary, "\n\n",
+                   "Experimental Design: ", Design, "\n\n")) %>% 
+    as.character()
+
+  descriptions[[season]] <- paste(out, paste(t, trts), collapse = "\n")
+}
+
+writeLines(unlist(descriptions), con = '../metadata/experiments.md')
+#writeLines(unlist(descriptions))
+```
+
+
+```{r treatments}
+
+managements_treatments <- tbl(bety_src, 'managements_treatments') %>% 
+  dplyr::select(treatment_id, management_id) 
+
+managements <- tbl(bety_src, 'managements') %>%
+  dplyr::select(management_id = id, date, mgmttype, level, units, notes) 
+
+treatments <- tbl(bety_src, 'treatments') %>%
+  dplyr::select(treatment_id = id , name, definition, control)
+
+experiments_treatments <- tbl(bety_src, 'experiments_treatments') %>%
+  dplyr::select(experiment_id, treatment_id)
+
+managementsplus <- managements %>% 
+  left_join(managements_treatments, by = 'management_id') %>%
+  left_join(treatments, by = 'treatment_id') %>% 
+  left_join(experiments_treatments, by = 'treatment_id') %>% 
+  inner_join(experiments_subset, by = 'experiment_id', copy = TRUE) %>% 
+  mutate(experiment = name) %>% 
+  select(Season, date, treatment = name, activity = mgmttype, level, units, notes) %>% 
+  collect()
+
+file.remove('../book/treatments.md')
+for(t in unique(managementsplus$treatment)){
+  s <- managementsplus %>% 
+    filter(treatment == t) %>% 
+    select(Season) %>% 
+    unique() %>% 
+    as.character()
+  tt <- managementsplus %>% 
+    filter(treatment == t) %>% 
+    arrange(date) %>% 
+    select(-treatment, -Season) %>% 
+    replace(., is.na(.), "") %>% 
+    knitr::kable(format = 'markdown')
+  write(paste("\n\n### ", t, "\n\n"), 
+        file = '../book/treatments.md', append = TRUE)
+  write(tt, 
+        file = '../book/treatments.md', append = TRUE)
+}
+
+```
+
+## Germplasm
+
+Here we use the terms 'germplasm', 'cultivars', and 'accessions' to refer to the distinct plant genotypes that are the key unit of experimental investigations in breeding trials.
+
+```{r germplasm}
+library(jsonlite)
+# Using traits package
+#season_6 <-  betydb_query(table = 'experiments', name = 'MAC Season 6: Sorghum BAP')
+#season_4 <-  betydb_query(table = 'experiments', name = 'MAC Season 4: All BAP Accessions')
+
+# experiments_subset generated above
+season_6 <- experiments_subset %>% 
+  filter(Season == 'MAC Season 6')
+season_4 <- experiments_subset %>% 
+  filter(Season == 'MAC Season 4') 
+
+# query germplasm from brapi endpoint
+if(!file.exists('../metadata/season_4_germplasm.json')){
+  download.file(
+    paste0("https://terraref.org/brapi/v1/studies/",
+           season_4$experiment_id,"/germplasm"), 
+    destfile = '../metadata/season_4_germplasm.json')
+}
+if(!file.exists('../metadata/season_4_germplasm.json')){
+  download.file(
+    paste0("https://terraref.org/brapi/v1/studies/",
+           season_6$experiment_id,"/germplasm"), 
+    destfile = '../metadata/season_6_germplasm.json')
+}
+s4_germplasm <- fromJSON('../metadata/season_4_germplasm.json', flatten = TRUE)$result$data %>%
+  select(germplasmName, germplasmPUI) %>% 
+  mutate(season_4 = TRUE)
+s6_germplasm <- fromJSON('../metadata/season_6_germplasm.json', flatten = TRUE)$result$data %>%
+  select(germplasmName, germplasmPUI) %>% 
+  mutate(season_6 = TRUE)
+germplasm_list <- s4_germplasm %>% 
+  dplyr::full_join(s6_germplasm, by = c('germplasmName', 'germplasmPUI')) 
+
+readr::write_csv(germplasm_list, '../metadata/germplasm.csv')
+
+germplasm_table <- germplasm_list %>% 
+  knitr::kable()
+
+germplasm_text <- c("# Germplasm \n\n A list of cultivars and the experiments in which they are planted are listed in the table below, from the file 'germplasm.csv'. Additional attributes are listed in the files 'season_4_germplasm.json' and 'season_6_germplasm.json'.\n\n", 
+                        germplasm_table)
+
+writeLines(germplasm_text, '../book/germplasm.md')
+# writeLines(germplasm_text) # in appendix
+```
+
+## List of Phenotypes and How They Were Measured
+
+Some were measured by sensor, and others were measured by hand.
+
+```{r methods}
+# Using traits package
+#variables <- betydb_query(table = 'variables', limit = 'none')
+#methods <- betydb_query(table = 'methods', limit = 'none')
+
+variables <- tbl(bety_src, 'variables') 
+methods <- tbl(bety_src, 'methods')
+
+# could generalize follwoing to a function:
+# get_season_data <- function(season){}
+
+s4 <- list()
+for (f in dir("../data/season_4_traits/", full.names = TRUE, pattern = 'csv')){
+  s4[[f]] <- readr::read_csv(f)
+}
+
+s4 <- dplyr::bind_rows(s4) %>% 
+  mutate(season = 'Season 4')
+
+s6 <- list()
+for (f in dir("../data/season_6_traits/", full.names = TRUE, pattern = 'csv')){
+  s6[[f]] <- readr::read_csv(f)
+}
+
+s6 <- dplyr::bind_rows(s6) %>% 
+  mutate(season = 'Season 6')
+
+s46 <- dplyr::bind_rows(s4, s6)
+
+s46_subset <- s46 %>% 
+  dplyr::select(plot, scientificname, genotype, season, treatment, date, trait, method, mean, checked, notes, author) %>% 
+  dplyr::mutate(method_type = ifelse(method %in% sensor_methods, 'sensor', 'manual'))
+
+readr::write_csv(
+  s46_subset %>% filter(season == "Season 4"), 
+  '../data/season_4_traits.csv')
+
+readr::write_csv(
+  s46_subset %>% filter(season == "Season 6"), 
+  '../data/season_6_traits.csv')
+```
+
+```{r s46methods}
+trait_counts <- s46_subset %>% 
+  group_by(trait, method) %>% 
+  tally()
+readr::write_csv(trait_counts, '../metadata/trait_counts.csv')
+
+unique_traits <- unique(s46_subset$trait)
+v <- variables %>% 
+  select(label, name, description, units, notes)  %>% 
+  filter(name %in% unique_traits) %>% 
+  collect()
+
+# alternative with R traits package:
+# c <- betydb_query(table = 'citations', limit = 'none') %>% 
+c <- tbl(bety_src, 'citations') %>% 
+  select(author, year, title, journal, citation_id = id)
+
+unique_methods <- unique(s46_subset$method)
+m <- methods %>%  
+  left_join(c, by = 'citation_id') %>% 
+  filter(name %in% unique_methods) %>%
+  select(name, description, author, title, year, journal) %>% 
+  collect()
+
+readr::write_csv(m, '../metadata/methods.csv')
+readr::write_csv(v, '../metadata/variables.csv')
+
+```
+
+
+```{r variables.md}
+variables_text <- v %>% 
+#  tidyr::replace_na(list(author = "", year = "", title = "", journal = "")) %>% 
+  rowwise() %>% 
+  transmute(paste0("\n**", label, 
+                   "** (",units,")",
+                   "\n* name: ", name,
+                   "\n* description: ",
+                   description, 
+                   "\n*_notes_: ", notes))
+
+variables_text <- unlist(variables_text)
+writeLines(text = c("Variables (Traits and Phenotypes)", 
+                    variables_text),
+           con  = 'variables.md')
+
+#writeLines(variables_text)
+```
+
+
+```{r methods.md}
+methods_text <- m %>% 
+  tidyr::replace_na(list(author = "", year = "", title = "", journal = "")) %>% 
+  rowwise() %>% 
+  transmute(paste(paste0("\n**", name, "**"),
+                  "\n* citation: ", author, year, title, journal,
+                  "\n* total observations: ", trait_counts %>% filter(method == m$name[[5]]) %>% ungroup() %>% summarise(sum(n)),                   "\n* description: ", description,
+                  "\n* associated variable(s):", trait_counts %>% filter(method == name) %>% select(trait) %>% paste(sep = ','), 
+                  "\n\n"
+                  ))
+
+methods_text <- unlist(methods_text)
+writeLines(text = c("### Methods: \n\n", methods_text), 
+                    con = 'methods.md')
+#writeLines(methods_text)
+```
+
