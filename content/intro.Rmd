@@ -7,27 +7,27 @@
 * Geographic Location: Maricopa, Arizona
   * Center of the field: -111.9749 latitude and 33.07549 longitude
   * Field is 200 m by 20 m
-* Keywords: Sensor, Phenomics, Sorghum, TERRA-REF
+* Keywords: Sensor, Phenomics, Sorghum, TERRA REF
 * Funding: The work presented herein was funded in part by the Advanced Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000598. Computational support was provided by the National Center for Supercomputing Applications and XSEDE.
 
-The data pipeline used to process sensor data and generate was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure". 
+The data pipeline used to process sensor data and generate was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure".
 
 ## Data Use, Sharing, and Access
 
 
-To cite this data: ... 
+To cite this data: ...
 
 In addition to the datasets provided in this repository and on Globus, there are instructions for using these data in the documentation.
 
-The TERRA REF documentation is hosted at docs.terraref.org. The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a pdf copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+The TERRA REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
 
-There are tutorials for getting started with terraref data available at `terraref.org/tutorials` and on github at github.com/terraref/tutorials.
+Tutorials for getting started with TERRA REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
 
-The TERRA REF YouTube channel hosts 1) video walkthroughts of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
+The TERRA REF YouTube channel hosts 1) video walkthroughs of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
 
-All data is released to the public domain under the CC-0 license. All original software is licensed with the BSD-3 clause or MIT/BSD compatible license. All software used for data processing has been archived on Zenodo and is available on GitHub in the terraref organization: github.com/terraref.
+All data are released to the public domain under the [CC-0 license](https://creativecommons.org/share-your-work/public-domain/cc0/). All original software are licensed with the BSD 3-clause or MIT/BSD compatible license. All software used for data processing have been archived on Zenodo and are available on GitHub in the `terraref` organization: [github.com/terraref](https://github.com/terraref).
 
-This software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the dois for code archives that contain the state of the software at the time the data were processed. Further development has been moved to github.com/agpipelines.
+This software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the DOIs for code archives that contain the state of the software at the time the data were processed. Further development has been moved to [github.com/AgPipeline](https://github.com/AgPipeline).
 
 | Component                     | Github Organization / Repository                 | Archive Citation            |
 |------------------------------|-----------------------------------|-----------------------------|
@@ -47,7 +47,7 @@ Other Software used in this project:
 
 _Not sure how extensive to make this list_
 
-| Software |  | Software Archive | Citation | 
+| Software |  | Software Archive | Citation |
 |---|---|---|
 | Clowder |  | luigi_marini_2019_3300953 | @Marini2018cos |
 | BETYdb Trait Database        | pecanproject/bety                 | @scott_rohde_2016_48661  | @LeBauer2018byt |
