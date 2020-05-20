@@ -3,17 +3,17 @@
 
 ### Raw Phenotype data
 
-Tables of phenotypes can be found in the folders compressed files `data/season_4_traits.zip` and `data/season_6_traits.zip`. Once uncompressed, each directory will contain one csv file for each combination of trait and measurement method. The names of these csv files help identify the contents because they follow the pattern  `[season][trait][measurement_type].csv`. For example, the file `season_6_aboveground_biomass_manual.csv` contains manual measurements of aboveground biomass taken during Season 6.
+Tables of phenotypes can be found in the compressed files `data/season_4_traits.zip` and `data/season_6_traits.zip`. Once uncompressed, each directory will contain one CSV file for each combination of trait and measurement method. The names of these CSV files help identify the contents because they follow the pattern  `[season][trait][measurement_type].csv`. For example, the file `season_6_aboveground_biomass_manual.csv` contains manual measurements of aboveground biomass taken during Season 6.
 
-These csv files have one measurement per row for a specific date, location, genotype, and measurement. The first line contains the names of the fields:
+These CSV files have one measurement per row for a specific date, location, genotype, and measurement. The first line contains the names of the fields:
 
-* **plot** Plot name, using the format `<field site> Season <n> Range <m> Column <k>`.
-* **scientificname** Latin name for the crop species. This will be _Sorghum bicolor_ in all cases until future versions with data from additional crops is published.
-* **genotype** Genotype or accession identifier. 
-* **treatment** Name of experimental treatment.
+* **plot** (text) Plot name, using the format `<field site> Season <n> Range <m> Column <k>`.
+* **scientificname** (text) Latin name for the crop species. This will be _Sorghum bicolor_ in all cases until future versions with data from additional crops are published.
+* **genotype** (text) Genotype or accession identifier.
+* **treatment** (text) Name of experimental treatment.
 * **date**: (YYYY-MM-DD) Date of measurement.
-* **trait**: (text) Mame of the trait measured. Defined in the file `metadata/variables.csv`.
-* **method**: (text) The method used to measure the trait. Defined in the file `metadata/methods.csv`. 
+* **trait**: (text) Name of the trait measured. Defined in the file `metadata/variables.csv`.
+* **method**: (text) The method used to measure the trait. Defined in the file `metadata/methods.csv`.
 * **mean**: (numeric) Value of the phenotype data.
 * **checked**: (boolean) 0 = unchecked and 1 = checked: has the data been independently reviewed?
 * **author**: (text) name of scientist who collected the data or who wrote the algorithm used to derive phenotypes from sensor data.
@@ -28,31 +28,31 @@ for (f in dir("data/season_4_traits/", full.names = TRUE, pattern = 'csv')){
   s4[[f]] <- readr::read_csv(f)
 }
 
-s4 <- dplyr::bind_rows(s4) %>% 
+s4 <- dplyr::bind_rows(s4) %>%
   mutate(season = 'Season 4')
 
 s6 <- list()
 for (f in dir("data/season_6_traits/", full.names = TRUE, pattern = 'csv')){
   s6[[f]] <- readr::read_csv(f)
 }
-s6 <- dplyr::bind_rows(s6) %>% 
+s6 <- dplyr::bind_rows(s6) %>%
   mutate(season = 'Season 6')
 
 s46 <- dplyr::bind_rows(s4, s6)
 
-s46_subset <- s46 %>% 
-  dplyr::select(plot, scientificname, genotype, season, treatment, date, trait, method, method_type, mean, checked, author) 
+s46_subset <- s46 %>%
+  dplyr::select(plot, scientificname, genotype, season, treatment, date, trait, method, method_type, mean, checked, author)
 
-trait_counts <- s46_subset %>% 
-  group_by(season, trait, method_type) %>% 
+trait_counts <- s46_subset %>%
+  group_by(season, trait, method_type) %>%
   tally()
 
-traits_daily <- s46_subset %>% 
-  mutate(season = ifelse(lubridate::year(lubridate::ymd(date)) == 2017, 
-                         'Season 4', 'Season 6')) %>% 
-  group_by(season, date, trait, method_type) %>% 
-  tally() 
-  
+traits_daily <- s46_subset %>%
+  mutate(season = ifelse(lubridate::year(lubridate::ymd(date)) == 2017,
+                         'Season 4', 'Season 6')) %>%
+  group_by(season, date, trait, method_type) %>%
+  tally()
+
 
 ```
 
@@ -60,22 +60,22 @@ traits_daily <- s46_subset %>%
 
 plots <- list()
 for(s in unique(traits_daily$season)){
-  
-  plots[[s]]  <- ggplot(data = traits_daily %>% filter(season == s)) + 
+
+  plots[[s]]  <- ggplot(data = traits_daily %>% filter(season == s)) +
     geom_point(aes(date, trait, color = method_type)) +
     #scale_alpha(name = "Number of records", trans = 'log10') + #, breaks = 10^(0:4))+
-    #scale_size_area(trans = 'log10', 
+    #scale_size_area(trans = 'log10',
     #                max_size = 1
     #                #breaks = 10^(0:4)
     #                ) +
     scale_x_date(date_labels = '%b %Y') +
     #  facet_grid(rows = vars(as.factor(season)), scales = 'free', space = "free") +
     ylab("Phenotype") +
-    # ggthemes::theme_tufte() + 
+    # ggthemes::theme_tufte() +
     theme_minimal() +
     theme(axis.text.y = element_text(size = 5),
           axis.text.x = element_text(size = 8)) +
-    scale_color_grey() 
+    scale_color_grey()
 }
 library(cowplot)
 
@@ -95,8 +95,7 @@ cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1, rel_heights = c(s4n / (s4n 
 
 ### Code
 
-For the purposes of reproducibility, the code used to run and query data from a copy of the TERRA REF trait database (terraref.org/bety) is provided. This uses Docker to run the database and R to query the data and prepare the csv files. The `code/` directory contains the following:
+For the purposes of reproducibility, the code used to run and query data from a copy of the TERRA REF trait database [terraref.org/bety](https://terraref.org/bety) is provided. This uses Docker to run the database and R to query the data and prepare the CSV files. The `code/` directory contains the following:
 
-* R script `s4s6_sql2csv.R` that connects to the database and generates the phenomics data files described above. This requires a copy of the database. Instructions for installing the database using Docker are found in `betydb_docker`. A much slower implementation that uses the API and the R traits package @chamberlain2019traits is provided in `code/s4s6_slow_api.R`.
+* R script `s4s6_sql2csv.R` that connects to the database and generates the phenotype data files described above. This requires a copy of the database. Instructions for installing the database using Docker are found in `betydb_docker`. A much slower implementation that uses the API and the R traits package @chamberlain2019traits is provided in `code/s4s6_slow_api.R`.
 * `betydb_docker/` folder that contains files named `Docker` and `docker-compose.yml` that allow a user to run the PostgreSQL database following instructions in the `README.md` file. This can be queried using the included script or from any programming language using the credentials stored in the file `.pgpass`.
-
