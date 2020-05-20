@@ -1,12 +1,12 @@
 ## Future Releases
 
-This data release does not contain all of the data that was collected during the TERRA REF project. Raw data and some derived products are available from the entire project that is available for use, but has not been processed and validated. The field scanner was operated as part of the TERRA REF program from April 2016 to September of 2019.
+This data release does not contain all of the data that was collected during the TERRA REF project. Raw data and some derived products from the entire project are available for use, but have not been processed and validated. The field scanner was operated as part of the TERRA REF program from April 2016 to September of 2019.
 
 For the first public release of data we have focused on a subset of the data that we collected, processed, and performed QA/QC on. We expect that this initial data release and subsets of these data curated for specific research projects will provide users and funders with sufficient information to justify processing, validating, and storing data from additional seasons and sensors.
 
-All raw data _are_ available, but are not in the public domain. That means that any use of datasets other than those made available under the CC0 license must adhere to the data use and authorship guidelines outlined in the documentation.
+All raw data _are_ available, but are not in the public domain. That means that any use of datasets other than those made available under the CC0 license must adhere to the [data use](https://docs.terraref.org/user-manual/data-use-policy) and [authorship](https://docs.terraref.org/user-manual/manuscripts-and-authorship-guidelines) guidelines outlined in the documentation.
 
-Pipeline development continues in a new GitHub organization, github.com/agpipelines. Current development is focused on supporting ongoing projects, but should make future re-processing easier and more reliable.
+Pipeline development continues in a new GitHub organization, [github.com/AgPipeline](https://github.com/AgPipeline). Current development is focused on supporting ongoing projects, but should make future re-processing easier and more reliable.
 
 ### Additional Seasons
 
@@ -23,7 +23,7 @@ Pipeline development continues in a new GitHub organization, github.com/agpipeli
 | 9 S    | Sorghum     |                          | GRASSL x RIO RILs                     | 2019-05-01    | 2019-07-28 |
 | 9 N    | Sorghum     |                          | SAP                                   | 2019-04-29    | 2019-09-05 |
 
-table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Panel, SAP = Sorghum Association Panel, Uniformity Trial = same lines planted in strips across field. In season 9 a second field 'North ' was added, and separate trials were conducted."
+table footnote: "*RIL = Recombinant Inbred Lines, BAP = Bioenergy Association Panel, SAP = Sorghum Association Panel, Uniformity Trial = same lines planted in strips across field. In season 9 a second field 'North' was added, and separate trials were conducted."
 
 ### Additional Sensors {#future-sensors}
 
@@ -39,7 +39,7 @@ table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Pane
 | SWIR Hyperspectral Imager      | [Headwall Inspector SWIR](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a79e4f0cad7d81319f5f?space=594bda394f0cf8bbab271dfb) | 900-2500 nm @ 2/3 nm resolution                                                                                       |
 | **Environmental**              |                                                                                                                                        |                                                                                                                       |
 | SWIR Spectrometer              | [Spectral Evolution PSR+](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)                                | Range 800-2500nm; Installed 2018                                                                                      |
-| Open Path CO2 Sensor           | GMP 343                                                                                                                                | Range: 0-1000 ppm                                                                                                     |
+| Open Path CO~2~ Sensor           | GMP 343                                                                                                                                | Range: 0-1000 ppm                                                                                                     |
 
 ### New derived datasets
 
@@ -50,5 +50,5 @@ table footnote: "*RIL = Recombinant Inbred Lines, BAP = Biomass Association Pane
 * Search interface search.terraref.org
 
 ### New Tutorials
-* Extensions of BrAPI 
+* Extensions of BrAPI
 * National Ag Library
