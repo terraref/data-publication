@@ -100,7 +100,7 @@ The files for each season are approximately 40 GB and, like sensor data, are pro
 
 The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
 
-The primary reason that these files are so large is that they contain
+The primary reason that these files are so large is that they contain the downwelling spectral radiance measurements (350-800 nm) at five second intervals.
 Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`
 
 On Globus, each date will include hourly files named `YYYY-MM-DD_HH-MM-SS_environmentlogger.nc` as well as a single daily file named `envlog_netcdf_L1_ua-mac_YYYY-MM-DD.nc` that contains the same information:
