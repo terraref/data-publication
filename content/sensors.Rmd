@@ -19,11 +19,8 @@ Additional sensors not represented in this version of the data are listed in the
 | **Environmental Sensors** |  |  |  |
 | Environmental Sensors | [Thies Clima 4.9200.00.000](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a9724f0cad7d8131b4d3)) |  |  Wind, Air Temperature, Humidity, Pressure, Light, Precipitation | 
 | VNIR Spectrometer  | [Spectral Evolution PSR+3500](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)  | Range 350 to 800 nm| 
-<<<<<<< HEAD
 | Environmental Sensors | [Thies Clima 4.9200.00.000](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a9724f0cad7d8131b4d3)) |  |  Wind, Air Temperature, Humidity, Pressure, Light, Precipitation | 
 | VNIR Spectrometer  | [Spectral Evolution PSR+3500](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)  | Range 350 to 800 nm| 
-=======
->>>>>>> bc4c24d563a5e5181f1b7055b80a0b589c26cf6b
 | PAR Sensor | Quantum SQ-300 |  Spectral Range 410 to 655 nm |
 
 ### Sensor Data Products
