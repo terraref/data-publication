@@ -3,11 +3,11 @@
 
 The Biomass Association Panel planted in Seasons 4 and 6 was described by @brenton2016. These genotypes have been sequenced and the sequence data and SNPs are available on the CyVerse Data Store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref.
 
-The genomics dataset includes raw and derived sorghum genome sequencing data from the Transportation Energy Resources from Renewable Agriculture Phenotyping Reference Platform (TERRA REF) project (http://terraref.org/). Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing. 
+The genomics dataset includes raw and derived sorghum genome sequencing data from the TERRA REF project. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
 
 The data is structured as follows:
 
-``` 
+```
 |-terraref
 |  |-genomics
 |  |  |-raw_data
@@ -26,16 +26,16 @@ The data is structured as follows:
 
 ### Germplasm
 
- A list of cultivars and the experiments in which they are planted are listed in the table below, from the file `germplasm.csv`. 
- 
+ A list of cultivars and the experiments in which they are planted are listed in the table below, from the file `germplasm.csv`.
+
  The `germplasm.csv` file contains the following fields:
- 
+
 * **germplasmName** Genotype identifier used by TERRA REF; typically equal to Genesys Accession Number
 * **germplasmPUI** UUID from [Genesys](https://www.genesys-pgr.org)
 * **season_4** Boolean, TRUE if the accession planted in Season 4 experiments.
 * **season_6** Boolean, TRUE if the accession planted in Season 6 experiments
- 
-For user convenience, we also provide this information as in a format that follows the Breeder's API (BrAPI) specification v1.3 @Selby2019 in files named `season_[n]_germplasm.json` as well as in the `terraref_sorghum_bap_samples.txt` table alongsid raw sequencing data (described below).
+
+For user convenience, we also provide this information as in a format that follows the Breeder's API (BrAPI) specification v1.3 @Selby2019 in files named `season_[n]_germplasm.json` as well as in the `terraref_sorghum_bap_samples.txt` table alongside raw sequencing data (described below).
 
 ### Whole-genome resequencing data for the sorghum Bioenergy Association Panel (BAP)
 
@@ -44,7 +44,7 @@ For user convenience, we also provide this information as in a format that follo
 Raw data are in bzip2 FASTQ format, one per read pair (`*_R1.fastq.bz2` and `*_R2.fastq.bz2`).
 384 samples are available.
 
-A table of sample information (`terraref_sorghum_bap_samples.txt`) can be found in the 
+A table of sample information (`terraref_sorghum_bap_samples.txt`) can be found in the
 [raw data directory `genomics/raw_data/bap/resequencing`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/bap/resequencing).
 
 Each table contains the following fields:
@@ -54,7 +54,7 @@ Each table contains the following fields:
 * **taxid**: Taxonomy ID from the [NCBI taxonomy database](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
 * **organism common name**: Genbank common name from the [NCBI taxonomy database](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
 * **subspecific genetic lineage rank**: Cultivar
-* **subspecific genetic lineage name**: Unique germplasm identifier 
+* **subspecific genetic lineage name**: Unique germplasm identifier
 * **ploidy**: Source, [Phytozome](https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
 * **number of replicons**: Number of chromosomes, source [Phytozome](https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
 * **estimated size**: Estimated genome size, source [Phytozome](https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor)
@@ -66,8 +66,8 @@ Each table contains the following fields:
 #### Derived data
 
 Data derived from analysis of the raw resequencing data at the Danforth Center (version1)
-are available as gzipped, genotyped variant call format (gVCF) files and the final 
-combined hapmap file in the 
+are available as gzipped, genotyped variant call format (gVCF) files and the final
+combined hapmap file in the
 [derived data directory `genomics/derived_data/bap/resequencing/danforth_center/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/bap/resequencing/danforth_center/version1).
 
 ### Genotyping-by-sequencing (GBS) data for sorghum recombinant inbred lines (RIL)
@@ -76,10 +76,10 @@ combined hapmap file in the
 
 Raw data are in gzip FASTQ format. 768 samples are available.
 
-A key file (`Key_ril_terra`) with sample information can be found in the 
+A key file (`Key_ril_terra`) with sample information can be found in the
 [raw data directory `genomics/raw_data/ril/gbs`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/ril/gbs).
 
 #### Derived data
 
-Combined genotype calls are available in VCF format in the 
+Combined genotype calls are available in VCF format in the
 [derived data directory `genomics/derived_data/ril/gbs/kansas_state/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1).
