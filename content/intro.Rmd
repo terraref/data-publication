@@ -6,8 +6,8 @@
 * Dates of Data Collection: 2017 and 2018
 * Geographic Location: Maricopa, Arizona
   * Center of the field: -111.9749 latitude and 33.07549 longitude
-  * Field is 200 m by 20 m
-* Keywords: Sensor, Phenomics, Sorghum, TERRA REF
+  * Field is approximately 0.4 ha (200 m x 20 m). The scannable area of the field is 22.1 m on East - West axis and 205.5 m on N/S axis.
+* Keywords: Sensor, Phenomics, Sorghum, TERRA-REF
 * Funding: The work presented herein was funded in part by the Advanced Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000598. Computational support was provided by the National Center for Supercomputing Applications and XSEDE.
 
 The data pipeline used to process sensor data and generate was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure".

@@ -1,21 +1,26 @@
 #!/usr/bin/env Rscript
 library(dplyr)
 
-# connecting to SQL takes <20 min compared to 
-# API which takes >4 hours
+# connecting to SQL takes <20 min compared to API which takes >4 hours
+# See /code/betydb_docker/README.md in this repository for instructions on 
+# installing the database using Docker which is required to use this code 
+
+## using docker with public data 
 bety_src <- src_postgres(
   dbname = "bety",
-  password = 'DelchevskoOro',
+  password = 'bety',
   host = 'localhost',
-  user = 'viewer',
+  user = 'bety',
   port = 5432
 )
-## if using docker
+
+# For reference; used for early versions of repo
+# using private ssh tunnel to main database
 # bety_src <- src_postgres(
 #   dbname = "bety",
-#   password = 'bety',
+#   password = 'DelchevskoOro',
 #   host = 'localhost',
-#   user = 'bety',
+#   user = 'viewer',
 #   port = 5433
 #   )
 
