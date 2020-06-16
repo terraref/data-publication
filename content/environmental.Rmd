@@ -7,9 +7,9 @@ We have data from two stations, AZMet and the field scanner system.
 
 #### Field Scanner System "Environment Logger"
 
-These data are from the Theis-Clima weather station mounted on the field scanner. This sensor provides a suite of additional measurements, including Y frequency measurements of each parameter, and X resolution of the downwelling solar spectra. The sensors and data collection frequency are described in the [section on sensor data](#sensor-data). We describe both the full resolution data provided as NetCDF files in the sensor data product named "envlog_netcdf" and the 5-minute aggregated data provided here as JSON files that were accessed using the Geostreams API as described in the TERRA REF tutorials. These time series are not continuous \@ref(fig:aggregated-weather-dates).
+These data are from the Theis-Clima weather station mounted on the field scanner. The Environment Logger has more sensors and provides high temporal resolution data than the weather station. In the NetCDF files, data is recorded at five seconds intervals. This logger also collects the downwelling solar radiation every five seconds at a spectral resolution of 0.5 nm. The sensors and data collection frequency are described in the [section on sensor data](#sensor-data). We describe both the full resolution data provided as NetCDF files in the sensor data product named "envlog_netcdf" and the 5--minute aggregated data provided here as JSON files that were accessed using the Geostreams API as described in the TERRA REF tutorials. These time series are not continuous, as can be seen in Figure \@ref(fig:aggregated-weather-dates).
 
-##### Environment Logger Aggregated JSON files
+##### Environment Logger Aggregated JSON Files
 
 The files `metadata/weather/envlog_aggregated/season_[n]_envlog.json` were downloaded from the Geostreams API on April 21 2020. The API is described in the tutorials, and the specific calls used to download these files are in `code/envlog_curl.sh`.
 
@@ -92,7 +92,7 @@ cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1)
 
 ```
 
-##### Environment Logger NetCDF
+##### Environment Logger NetCDF Files
 
 These are even higher resolution time series.
 
@@ -101,11 +101,13 @@ The files for each season are approximately 40 GB and, like sensor data, are pro
 The data are described in the TERRA REF documentation under the environmental data section of the [data products chapter](https://docs.terraref.org/user-manual/data-products/environmental-conditions).
 
 The primary reason that these files are so large is that they contain the downwelling spectral radiance measurements (350-800 nm) at five second intervals.
-Here, I am assuming that these have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`
 
-On Globus, each date will include hourly files named `YYYY-MM-DD_HH-MM-SS_environmentlogger.nc` as well as a single daily file named `envlog_netcdf_L1_ua-mac_YYYY-MM-DD.nc` that contains the same information:
+On Globus, each date will include hourly files named `[YYYY-MM-DD_HH-MM-SS]_environmentlogger.nc` and as a single daily file named `envlog_netcdf_L1_ua-mac_[YYYY-MM-DD].nc`. 
+The daily file contains all of the hourly files concatenated into a single file for ease of use.
 
 ```{r}
+# For this code to work, the environmental logger NetCDF 
+# files need to have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`
 data_dir <- '~/data/ua-mac/Level_1/envlog_netcdf/'
 daily_ncfiles <- dir(data_dir,
                      recursive = TRUE,
@@ -138,13 +140,11 @@ PAR <- c(vals, metdata$`par_sensor/Sensor_Photosynthetically_Active_Radiation`)
 
 ### AZMET
 
-These gap-filled and corrected data have been provided for convenience. **It is require to cite** @Brown1996azmet:
-> Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/" when using these data.
+These gap-filled and corrected data have been provided for convenience. When using these data, **users must cite** @Brown1996azmet:
+> Brown, P. W., & Russell, B. (1996). AZMET, The Arizona Meteorological Network. Arizona Cooperative. website: https://cals.arizona.edu/AZMET/.
 
-Both hourly and daily values are available, and can be found in the `metadata/weather/azmet` folder. There are four CSV files - one daily and one hourly for each season, and a README that provides a description of their content. These files have not been modified from the website other than to subset it to the time range of the two seasons of observations.
-
-
+Both hourly and daily values are available, and can be found in the `/metadata/weather/azmet` folder of the Dryad repository. There are four CSV files -- one daily and one hourly for each season, and a README file that provides a description of their content. These files have not been modified from the collection on the website other than to subset it to the time range of the two seasons of sensor and phenotype data.
 
 ### Soils Data
 
-A comprehensive analysis of soil physical properties will be published alongside the TERRA REF datasets [@babaeian2020].
+A comprehensive analysis of soil physical properties will be published alongside the TERRA-REF datasets [@babaeian2020].

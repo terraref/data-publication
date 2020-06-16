@@ -1,5 +1,5 @@
 --- 
-title: "Data From: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors"
+title: "Data From: TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors"
 author: "David LeBauer and many others"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

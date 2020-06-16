@@ -2,36 +2,46 @@
 
 ## General information
 
-* Title: TERRA REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors
+* Title: TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors
 * Dates of Data Collection: 2017 and 2018
 * Geographic Location: Maricopa, Arizona
-  * Center of the field: -111.9749 latitude and 33.07549 longitude
+  * Center of the field: 33.07549$^{\circ}$ N 111.9749$^{\circ}$ W
   * Field is approximately 0.4 ha (200 m x 20 m). The scannable area of the field is 22.1 m on East - West axis and 205.5 m on N/S axis.
 * Keywords: Sensor, Phenomics, Sorghum, TERRA-REF
 * Funding: The work presented herein was funded in part by the Advanced Research Projects Agency-Energy (ARPA-E), U.S. Department of Energy, under Award Number DE-AR0000598. Computational support was provided by the National Center for Supercomputing Applications and XSEDE.
 
-The data pipeline used to process sensor data and generate was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure".
+The data pipeline used to process sensor data and generate derived data was described in the @burnette2018 ACM PEARC 2018 proceedings paper "TERRA-REF data processing infrastructure".
 
 ## Data Use, Sharing, and Access
 
 
-To cite this data: ...
+To cite this dataset: ...
 
-In addition to the datasets provided in this repository and on Globus, there are instructions for using these data in the documentation.
+This data publication consists of data and metadata, as described below.
+Plot level phenotypes, experimental meta-data, and a catalog of large files are available on Dryad.
+The file catalog provides the location of larger sensor files that can be accessed using the Globus file transfer service.  
+Because the dataset contains over 400TB of sensor data files, these large files are stored at the National Center for Supercomputing Applications and are made available using the Globus file transfer service.
 
-The TERRA REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+In addition to hosting an archival copy of data on Dryad, the documentation includes instructions for browsing and accessing these data through a variety of online portals. 
+These portals provide access to web user interfaces as well as databases, apis, and R and Python clients.
+In some cases it will be easier to access data through these portals using web interfaces and software libraries.
 
-Tutorials for getting started with TERRA REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
+Except where clearly indicated for sensor data, the structure of directories that contain data and metadata refer to the contents of the Dryad archive.
+There are four directories: `data`, `metadata`, `code`, and `documentation`.
 
-The TERRA REF YouTube channel hosts 1) video walkthroughs of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
+The TERRA-REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+
+Tutorials for getting started with TERRA-REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
+
+The TERRA-REF YouTube channel hosts 1) video walkthroughs of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
 
 All data are released to the public domain under the [CC-0 license](https://creativecommons.org/share-your-work/public-domain/cc0/). All original software are licensed with the BSD 3-clause or MIT/BSD compatible license. All software used for data processing have been archived on Zenodo and are available on GitHub in the `terraref` organization: [github.com/terraref](https://github.com/terraref).
 
-This software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the DOIs for code archives that contain the state of the software at the time the data were processed. Further development has been moved to [github.com/AgPipeline](https://github.com/AgPipeline).
+This software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the DOIs for code archives that contain the state of the software at the time the data were processed.
 
 | Component                     | Github Organization / Repository                 | Archive Citation            |
 |------------------------------|-----------------------------------|-----------------------------|
-| TERRA REF Documentation      | terraref/documentation            | @david_lebauer_2020_3661373 |
+| TERRA-REF Documentation      | terraref/documentation            | @david_lebauer_2020_3661373 |
 | Reference Data               | terraref/reference-data           | @david_lebauer_2020_3635863 |
 | Sensor Metadata              | terraref/sensor-metadata          | @craig_willis_2020_3635853  |
 | Computing Pipeline           | terraref/computing-pipeline       | @max_burnette_2020_3635849  |
@@ -44,8 +54,6 @@ This software was created specifically for the field scanner data processing pip
 | Stereo RGB                   | terraref/extractors-stereo-rgb    | @max_burnette_2019_3406304  |
 
 Other Software used in this project:
-
-_Not sure how extensive to make this list_
 
 | Software |  | Software Archive | Citation |
 |---|---|---|

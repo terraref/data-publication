@@ -1,14 +1,14 @@
 ## Phenotype Data
 
 
-### Raw Phenotype data
+### Raw Phenotype Data
 
-Tables of phenotypes can be found in the compressed files `data/season_4_traits.zip` and `data/season_6_traits.zip`. Once uncompressed, each directory will contain one CSV file for each combination of trait and measurement method. The names of these CSV files help identify the contents because they follow the pattern  `[season][trait][measurement_type].csv`. For example, the file `season_6_aboveground_biomass_manual.csv` contains manual measurements of aboveground biomass taken during Season 6.
+Tables of phenotypes can be found in the compressed files `data/season_4_traits.zip` and `data/season_6_traits.zip`. Once uncompressed, each directory will contain one CSV file for each combination of trait and measurement method. The names of these CSV files help identify the contents because they follow the pattern  `season_[n]_[trait]_[measurement_type].csv`. For example, the file `season_6_aboveground_biomass_manual.csv` contains manual measurements of above-ground biomass taken during season 6.
 
-These CSV files have one measurement per row for a specific date, location, genotype, and measurement. The first line contains the names of the fields:
+These CSV files have one measurement per row for a specific date, location, genotype, and measurement. The first line is a header that contains the names of the fields:
 
 * **plot** (text) Plot name, using the format `<field site> Season <n> Range <m> Column <k>`.
-* **scientificname** (text) Latin name for the crop species. This will be _Sorghum bicolor_ in all cases until future versions with data from additional crops are published.
+* **scientificname** (text) Latin name for the crop species. This will always be _Sorghum bicolor_ until future versions with data from additional crops are published.
 * **genotype** (text) Genotype or accession identifier.
 * **treatment** (text) Name of experimental treatment.
 * **date**: (YYYY-MM-DD) Date of measurement.
@@ -97,5 +97,5 @@ cowplot::plot_grid(plots[[1]], plots[[2]], ncol = 1, rel_heights = c(s4n / (s4n 
 
 For the purposes of reproducibility, the code used to run and query data from a copy of the TERRA REF trait database [terraref.org/bety](https://terraref.org/bety) is provided. This uses Docker to run the database and R to query the data and prepare the CSV files. The `code/` directory contains the following:
 
-* R script `s4s6_sql2csv.R` that connects to the database and generates the phenotype data files described above. This requires a copy of the database. Instructions for installing the database using Docker are found in `betydb_docker`. A much slower implementation that uses the API and the R traits package @chamberlain2019traits is provided in `code/s4s6_slow_api.R`.
-* `betydb_docker/` folder that contains files named `Docker` and `docker-compose.yml` that allow a user to run the PostgreSQL database following instructions in the `README.md` file. This can be queried using the included script or from any programming language using the credentials stored in the file `.pgpass`.
+* An R script `s4s6_sql2csv.R` that connects to the database and generates the phenotype data files described above. This requires a copy of the database. Instructions for installing the database using Docker are found in `betydb_docker`. A much slower implementation that uses the API and the R traits package @chamberlain2019traits is provided in `code/s4s6_slow_api.R`.
+* The `betydb_docker/` folder that contains files named `Docker`, `docker-compose.yml`, `README.md` and `.pgpass`. This allows a user to run a copy of the TERRA REF PostgreSQL database containing phenotype data and agronomic metadata. Instructions are in the `README.md` file and database connection parameters are in the `.pgpass` file. This database can be queried using the included R script or from any programming language using the credentials stored in the `.pgpass` file.

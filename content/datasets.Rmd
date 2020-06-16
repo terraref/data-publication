@@ -3,7 +3,7 @@
 In this README, we define the following types of data:
 
 
-1. **Sensor Data** from five thermal, light, and shape imaging sensors scanning a 4000 m^2^ field at hourly to weekly intervals at 1 mm^2^ scale resolution. Additional details in the [section on sensors](#field-scanner-sensors) and sensor technical descriptions that can be found in the `metadata/sensors/` directory of this repository.
+1. **Sensor Data** from five thermal, light, and shape imaging sensors scanning a 4000 m$^2$ field at hourly to weekly intervals at 1 mm$^2$ scale resolution. Additional details in the [section on sensors](#field-scanner-sensors) and sensor technical descriptions that can be found in the `metadata/sensors/` directory of this repository.
 2. **Phenotypes** include both sensor-derived and standard field measurements required to validate and calibrate algorithms that compute plant phenotypes from remote sensing data.
 3. **Environmental data** include time series of meteorological variables including temperature, relative humidity, precipitation, wind direction and speed, photosynthetically active radiation, and downwelling spectral radiance.
 4. **Genomics** data include whole-genome resequencing data for 384 varieties from the sorghum Bioenergy Association Panel (BAP) and genotyping-by-sequencing data for 768 sorghum Recombinant Inbred Lines (RILs). Contains raw and derived sorghum genome sequencing data. Raw data includes DNA sequence files in compressed FASTQ format. Derived data are available in Variant Call Format (VCF) and Hapmap files.

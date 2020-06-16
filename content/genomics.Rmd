@@ -1,11 +1,11 @@
 
 ## Genomics Data
 
-The Biomass Association Panel planted in Seasons 4 and 6 was described by @brenton2016. These genotypes have been sequenced and the sequence data and SNPs are available on the CyVerse Data Store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref.
+The Biomass Association Panel planted in Seasons 4 and 6 was described by @brenton2016. These genotypes have been sequenced and the sequence data and SNPs are provided as an archive on Dryad. A copy of these data is available on the CyVerse Data Store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref.
 
-The genomics dataset includes raw and derived sorghum genome sequencing data from the TERRA REF project. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
+The genomics dataset includes raw and derived sorghum genome sequencing data from the TERRA-REF project. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
 
-The data is structured as follows:
+The data is contained in the following directory structure:
 
 ```
 |-terraref
@@ -26,32 +26,32 @@ The data is structured as follows:
 
 ### Germplasm
 
- A list of cultivars and the experiments in which they are planted are listed in the table below, from the file `germplasm.csv`.
+ A list of cultivars and the experiments in which they are planted are listed in the file `metadata/germplasm.csv`.
 
  The `germplasm.csv` file contains the following fields:
 
 * **germplasmName** Genotype identifier used by TERRA REF; typically equal to Genesys Accession Number
 * **germplasmPUI** UUID from [Genesys](https://www.genesys-pgr.org)
-* **season_4** Boolean, TRUE if the accession planted in Season 4 experiments.
-* **season_6** Boolean, TRUE if the accession planted in Season 6 experiments
+* **season_4** A boolean which is _TRUE_ if the accession was planted in Season 4 experiments.
+* **season_6** A boolean value which is _TRUE_ if the accession was planted in Season 6 experiments.
 
-For user convenience, we also provide this information as in a format that follows the Breeder's API (BrAPI) specification v1.3 @Selby2019 in files named `season_[n]_germplasm.json` as well as in the `terraref_sorghum_bap_samples.txt` table alongside raw sequencing data (described below).
+For user convenience, we also provide this information and additional metadata in a format that follows the Breeder's API (BrAPI) specification v1.3 @Selby2019 in files named `season_[n]_germplasm.json` and in the `terraref_sorghum_bap_samples.txt` table alongside raw sequencing data (described below).
 
 ### Whole-genome resequencing data for the sorghum Bioenergy Association Panel (BAP)
 
 #### Raw data
 
 Raw data are in bzip2 FASTQ format, one per read pair (`*_R1.fastq.bz2` and `*_R2.fastq.bz2`).
-384 samples are available.
+There are 384 available samples.
 
 A table of sample information (`terraref_sorghum_bap_samples.txt`) can be found in the
 [raw data directory `genomics/raw_data/bap/resequencing`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/bap/resequencing).
 
 Each table contains the following fields:
 
-* **identifier**: The unique genotype ID that will be used in the derived data outputs
+* **identifier**: The unique genotype identifier that will be used in the derived data outputs
 * **accession**: Genotype identifier used by TERRA REF
-* **taxid**: Taxonomy ID from the [NCBI taxonomy database](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
+* **taxid**: Taxonomy identifier from the [NCBI taxonomy database](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
 * **organism common name**: Genbank common name from the [NCBI taxonomy database](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4558)
 * **subspecific genetic lineage rank**: Cultivar
 * **subspecific genetic lineage name**: Unique germplasm identifier
@@ -74,7 +74,7 @@ combined hapmap file in the
 
 #### Raw data
 
-Raw data are in gzip FASTQ format. 768 samples are available.
+Raw data are in gzip FASTQ format. There are 768 available samples.
 
 A key file (`Key_ril_terra`) with sample information can be found in the
 [raw data directory `genomics/raw_data/ril/gbs`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/ril/gbs).
@@ -82,4 +82,4 @@ A key file (`Key_ril_terra`) with sample information can be found in the
 #### Derived data
 
 Combined genotype calls are available in VCF format in the
-[derived data directory `genomics/derived_data/ril/gbs/kansas_state/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1).
+[derived data directory \n `genomics/derived_data/ril/gbs/kansas_state/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1).
