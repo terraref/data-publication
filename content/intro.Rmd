@@ -29,7 +29,7 @@ In some cases it will be easier to access data through these portals using web i
 Except where clearly indicated for sensor data, the structure of directories that contain data and metadata refer to the contents of the Dryad archive.
 There are four directories: `data`, `metadata`, `code`, and `documentation`.
 
-The TERRA-REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_[date]_.pdf` in the `documentation/` directory.
+The TERRA-REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_2020_04_06.pdf` in the `metadata/` directory.
 
 Tutorials for getting started with TERRA-REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
 

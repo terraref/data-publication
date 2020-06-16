@@ -25,3 +25,10 @@ Contributors should fill out this form to https://forms.gle/AJmBRothWuaPiRz38.
 * Contents of the /data and /metadata folders described in the text are on [Google Drive](https://drive.google.com/open?id=1THk-NQYxkkej-zdQsqM7i9t-axyS0Sug); genomics data are in the CyVerse data store https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics.
 * If you would like to edit markdown and submit a pull request, you can find the source code on GitHub.
 * If you would like to run the R code and have trouble, ask David for help.
+
+## Archiving on Dryad
+
+* terraref-dryad.pdf
+* Genomics: contents of https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics
+* metadata/ and data/ folders from https://drive.google.com/drive/folders/1THk-NQYxkkej-zdQsqM7i9t-axyS0Sug?usp=sharing
+* code/ and documentation/
