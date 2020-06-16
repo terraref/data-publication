@@ -41,8 +41,9 @@ For user convenience, we also provide this information and additional metadata i
 
 #### Raw data
 
-Raw data are in bzip2 FASTQ format, one per read pair (`*_R1.fastq.bz2` and `*_R2.fastq.bz2`).
-There are 384 available samples.
+There are 384 available samples. Each sample is stored as a pair of files in bzip2 FASTQ format with names ending in `*_R1.fastq.bz2` and `*_R2.fastq.bz2`. 
+R1 and R2 in these names represent read pairs one and two.
+Each file in a pair has the same number of DNA sequences that line up and are read from opposite ends of the same sequenced molecule.
 
 A table of sample information (`terraref_sorghum_bap_samples.txt`) can be found in the
 [raw data directory `genomics/raw_data/bap/resequencing`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/bap/resequencing).

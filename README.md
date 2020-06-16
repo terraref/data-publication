@@ -28,7 +28,6 @@ Contributors should fill out this form to https://forms.gle/AJmBRothWuaPiRz38.
 
 ## Archiving on Dryad
 
-* terraref-dryad.pdf
-* Genomics: contents of https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics
-* metadata/ and data/ folders from https://drive.google.com/drive/folders/1THk-NQYxkkej-zdQsqM7i9t-axyS0Sug?usp=sharing
-* code/ and documentation/
+* README: terraref-dryad.pdf
+* Genomics Data: contents of https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics
+* code/, metadata/, and data/ folders from https://drive.google.com/drive/folders/1THk-NQYxkkej-zdQsqM7i9t-axyS0Sug?usp=sharing
