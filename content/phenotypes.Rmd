@@ -56,7 +56,7 @@ traits_daily <- s46_subset %>%
 
 ```
 
-```{r trait_counts, include = TRUE, warning=FALSE, fig.cap='counts of individual plot level measurements for each trait', fig.height = 8}
+```{r trait_counts, include = TRUE, warning=FALSE, fig.cap='Counts of individual plot level measurements for each trait.', fig.height = 8}
 
 plots <- list()
 for(s in unique(traits_daily$season)){
