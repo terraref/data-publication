@@ -108,7 +108,7 @@ The daily file contains all of the hourly files concatenated into a single file 
 ```{r}
 # For this code to work, the environmental logger NetCDF 
 # files need to have been downloaded to a folder named `~/data/ua-mac/Level_1/envlog_netcdf/`
-data_dir <- '~/data/ua-mac/Level_1/envlog_netcdf/'
+data_dir <- 'metadata/weather/envlog_netcdf/'
 daily_ncfiles <- dir(data_dir,
                      recursive = TRUE,
                      pattern = 'envlog_netcdf_L1')
