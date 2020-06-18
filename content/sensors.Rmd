@@ -50,7 +50,7 @@ collections: 'collection name [Data Product Name] - [YYYY-MM]'
 
 There is one collection per data product per month, and one dataset per data product per day. This structure of collections and datasets refers to the organization of files in the the Clowder database and web interface [see data access documentation](https://docs.terraref.org/user-manual/how-to-access-data).
 
-Below is a summary of the sensor data products included in the first release of TERRA-REF data. Sensor-derived phenotypes described in the [Phenotype Data]](#phenotype-data) section were generated from the 3D laser scanner and RGB camera sensors as described in the [Methods](#methods) section.
+Below is a summary of the sensor data products included in the first release of TERRA-REF data. Sensor-derived phenotypes described in the [Phenotype Data](#phenotype-data) section were generated from the 3D laser scanner and RGB camera sensors as described in the file metadata/methods.csv.
 
 | Data Product    | Sensor                | Algorithm     | File Format | Plot Clip | Full Field |
 |-----------------|-----------------------|---------------|-------------|-----------|------------|

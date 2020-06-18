@@ -55,7 +55,7 @@ This software was created specifically for the field scanner data processing pip
 
 Other Software used in this project:
 
-| Software |  | Software Archive | Citation |
+| Software |  Github Organization / Repository | Software Archive | Citation |
 |---|---|---|
-| Clowder |  | luigi_marini_2019_3300953 | @Marini2018cos |
+| Clowder |  clowder-framework/clowder | @luigi_marini_2019_3300953 | @Marini2018cos |
 | BETYdb Trait Database        | pecanproject/bety                 | @scott_rohde_2016_48661  | @LeBauer2018byt |
