@@ -1,14 +1,16 @@
-install.packages("rorcid")
+
 library(rorcid)
 library(dplyr)
 
 # from https://docs.google.com/spreadsheets/d/1FnaeJZ1A6r1fa3UvhfczMLKh5CWaSMErBRw4vTKgPe8/edit#gid=653912363
 download.file('https://docs.google.com/spreadsheets/d/e/2PACX-1vRlpmpKQFDP0yWf0_xUT8s_h1t5IC6dtDxt4fmerrAULfItbtd0nefH-22DpgaIPwiURBPNcXpXpDyV/pub?gid=653912363&single=true&output=csv',
               'authorship.csv')
-x <- readr::read_csv('authorship.csv')
+x <- readr::read_csv('authorship.csv') %>% 
+  filter(x$`Would you like to be a co-author` %in% c("NA", "Yes"))
 #orcid_auth()
 
 a <- list()
+
 for(orcid in x$ORCID){
   orcid_result <- rorcid::orcid_id(orcid)
   a[[orcid]] <- orcid_result[[1]]$name$`family-name`$value
@@ -42,3 +44,13 @@ z <- y %>%
   mutate(initials = acronymatize(name))
 
 readr::write_csv(z, 'metadata/authors.csv')
+
+
+zz <- z %>% arrange(familyname) %>% 
+  summarise(authors = 
+              paste0(' - ', name, '^[', 
+                     institution, 
+                     ', orcid:', orcid,']')
+            )
+
+writeLines(zz$authors, 'authors.txt')
