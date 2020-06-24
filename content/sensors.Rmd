@@ -34,7 +34,7 @@ As an alternative, the data can be provided on hard drives for the cost of suppl
 
 #### Sensor Data Catalog
 
-Globus provides the easiest way to navigate the data. This archive also contains a catalog listing all of the files in the dataset. The catalog is one compressed `.zip` file per season, currently seasons 4 and 6, found in the `data/` directory in files named `season_[n]_catalog.zip`. The compressed catalogs are 373 MB total, and expand to 5.4 GB when uncompressed. After uncompressing the catalog files, the catalog contains one directory per data product and one file per day named `[data product]/file_catalog_season[n]_[data product]_[filetype]_[YYYY-MM-DD].json`.
+Globus provides the easiest way to navigate the data. This archive also contains a catalog listing all of the files in the dataset. The catalog is one compressed `.zip` file per season, currently seasons 4 and 6, found in the `data/sensors` directory in files named `season_[n]_catalog.zip`. The compressed catalogs are 373 MB total, and expand to 5.4 GB when uncompressed. After uncompressing the catalog files, the catalog contains one directory per data product and one file per day named `[data product]/file_catalog_season[n]_[data product]_[filetype]_[YYYY-MM-DD].json`.
 
 These catalog files contain the following information in JSON format:
 

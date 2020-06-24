@@ -8,7 +8,7 @@ The genomics dataset includes raw and derived sorghum genome sequencing data fro
 The data is contained in the following directory structure:
 
 ```
-|-terraref
+|-data
 |  |-genomics
 |  |  |-raw_data
 |  |  |  |-bap
