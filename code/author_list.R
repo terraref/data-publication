@@ -3,17 +3,30 @@ library(rorcid)
 library(dplyr)
 
 # from https://docs.google.com/spreadsheets/d/1FnaeJZ1A6r1fa3UvhfczMLKh5CWaSMErBRw4vTKgPe8/edit#gid=653912363
-download.file('https://docs.google.com/spreadsheets/d/e/2PACX-1vRlpmpKQFDP0yWf0_xUT8s_h1t5IC6dtDxt4fmerrAULfItbtd0nefH-22DpgaIPwiURBPNcXpXpDyV/pub?gid=653912363&single=true&output=csv',
+file.remove('authorship.csv')
+download.file('https://docs.google.com/spreadsheets/d/e/2PACX-1vRlpmpKQFDP0yWf0_xUT8s_h1t5IC6dtDxt4fmerrAULfItbtd0nefH-22DpgaIPwiURBPNcXpXpDyV/pub?gid=653912363&single=true&output=csv', cacheOK = FALSE,
               'authorship.csv')
+
+
+# check who opted out
+readr::read_csv('authorship.csv') %>% 
+  filter(`Would you like to be a co-author` == 'No')
+
 x <- readr::read_csv('authorship.csv') %>% 
-  filter(x$`Would you like to be a co-author` %in% c("NA", "Yes"))
-#orcid_auth()
+  filter(`Would you like to be a co-author` == "Yes")
+
+
+# orcid_auth(reauth = TRUE)
 
 a <- list()
 
 for(orcid in x$ORCID){
-  orcid_result <- rorcid::orcid_id(orcid)
-  a[[orcid]] <- orcid_result[[1]]$name$`family-name`$value
+  if(!is.na(orcid)){
+    orcid_result <- rorcid::orcid_id(orcid)
+    a[[orcid]] <- orcid_result[[1]]$name$`family-name`$value
+  } else {
+    a[['NA']] <- "Qin"
+  }
 }
 
 
