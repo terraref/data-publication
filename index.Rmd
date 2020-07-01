@@ -1,7 +1,8 @@
 --- 
-title: "Data From: TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors"
-author: 
-  - David LeBauer^[College of Agriculture and Life Sciences, University of Arizona, orcid:0000-0001-7228-053X]
+title: 'Data From: TERRA-REF, An Open Reference Data Set From High Resolution Genomics,
+  Phenomics, and Imaging Sensors'
+author:
+ - David LeBauer^[College of Agriculture and Life Sciences, University of Arizona, orcid:0000-0001-7228-053X]
  - Maxwell A. Burnette^[NCSA, University of Illinois, orcid:0000-0002-1786-3676]
  - Jeffrey Demieville^[University of Arizona, orcid:0000-0002-7725-7379]
  - Noah Fahlgren^[Donald Danforth Plant Science Center, orcid:0000-0002-5597-4537]
@@ -34,13 +35,17 @@ author:
  - Craig Willis^[University of Illinois at Urbana-Champaign, orcid:0000-0002-6148-7196]
  - Charles S Zender^[University of California, Irvine, orcid:0000-0003-0129-8024]
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+bibliography:
+- book.bib
+- packages.bib
+description: This describes the TERRA REF public data release
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
-description: "This describes the TERRA REF public data release"
 geometry: margin=1in
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+urlcolor: blue
+linkcolor: blue
 ---
 
 ```{r include = FALSE}

@@ -11,5 +11,4 @@ bookdown::pdf_document2:
   toc_depth: 3
   number_sections: false
   pandoc_args: --top-level-division=section # https://pandoc.org/MANUAL.html#options
-  urlcolor: blue
 bookdown::tufte_book2: default
