@@ -6,23 +6,23 @@ library(dplyr)
 # installing the database using Docker which is required to use this code 
 
 ## using docker with public data 
-# bety_src <- src_postgres(
-#   dbname = "bety",
-#   password = 'bety',
-#   host = 'localhost',
-#   user = 'bety',
-#   port = 5432
-# )
+bety_src <- src_postgres(
+  dbname = "bety",
+  password = 'bety',
+  host = 'localhost',
+  user = 'bety',
+  port = 5432
+)
 
 # For reference; used for early versions of repo
 # using private ssh tunnel to main database
-bety_src <- src_postgres(
-  dbname = "bety",
-  password = 'DelchevskoOro',
-  host = 'localhost',
-  user = 'viewer',
-  port = 5432
-  )
+# bety_src <- src_postgres(
+#   dbname = "bety",
+#   password = 'DelchevskoOro',
+#   host = 'localhost',
+#   user = 'viewer',
+#   port = 5432
+#   )
 
 traitsview <- tbl(bety_src, 'traits_and_yields_view')
 
