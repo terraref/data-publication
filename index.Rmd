@@ -2,7 +2,7 @@
 title: 'Data From: TERRA-REF, An Open Reference Data Set From High Resolution Genomics,
   Phenomics, and Imaging Sensors'
 author:
- - David LeBauer^[University of Arizona, orcid:0000-0001-7228-053X]
+ - David S. LeBauer^[University of Arizona, orcid:0000-0001-7228-053X]
  - Maxwell A. Burnette^[NCSA, University of Illinois at Urbana-Champaign, orcid:0000-0002-1786-3676]
  - Jeffrey Demieville^[University of Arizona, orcid:0000-0002-7725-7379]
  - Noah Fahlgren^[Donald Danforth Plant Science Center, orcid:0000-0002-5597-4537]
@@ -17,7 +17,7 @@ author:
  - Todd C. Mockler^[Donald Danforth Plant Science Center, orcid:0000-0002-0462-5775]
  - Geoffrey Morris^[Kansas State University, orcid:0000-0002-3067-3359]
  - Maria Newcomb^[University of Arizona, current: USDA Forest Service, orcid:0000-0003-2974-9149]
- - Michael J Ottman^[University of Arizona, orcid:0000-0003-0763-3073]
+ - Michael J. Ottman^[University of Arizona, orcid:0000-0003-0763-3073]
  - Philip Ozersky^[Danforth Plant Science Center, orcid:0000-0002-8942-0524]
  - Sidike Paheding^[Saint Louis University, orcid:0000-0003-4712-9672]
  - Duke Pauli^[University of Arizona, orcid:0000-0002-8292-2388]
@@ -46,6 +46,7 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 urlcolor: blue
 linkcolor: blue
+classoption: openany
 ---
 
 ```{r include = FALSE}

@@ -67,3 +67,5 @@ zz <- z %>% arrange(familyname) %>%
             )
 
 writeLines(zz$authors, 'authors.txt')
+paste(z$familyname, sep = ', ')
+paste(paste0(sort(z$familyname)), collapse = ", ")

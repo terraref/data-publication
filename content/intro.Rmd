@@ -15,7 +15,9 @@ The data pipeline used to process sensor data and generate derived data was desc
 ## Data Use, Sharing, and Access
 
 
-To cite this dataset: ...
+To cite this dataset: 
+
+LeBauer, D.S., Burnette, M.A., Demieville, J., Fahlgren, N., French, A.N., Garnett, R., Hu, Z., Huynh, K., Kooper, R., Li, Z., Maimaitijiang, M., Mao, J., Mockler, T.C., Morris, G.S., Newcomb, M., Ottman, M., Ozersky, P., Paheding, S., Pauli, D., Pless, R., Qin, W., Riemer, K., Rohde, S., Rooney, W.L., Sagan, V., Shakoor, N., Stylianou, A., Thorp, K., Ward, R., White, J.W., Willis, C.,  and Zender C.S. 2020. TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors. Dryad Digital Repository. http://doi.org/10.5061/dryad.TBD
 
 This data publication consists of data and metadata, as described below.
 Plot level phenotypes, experimental meta-data, and a catalog of large files are available on Dryad.
