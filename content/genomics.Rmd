@@ -5,7 +5,9 @@ The Biomass Association Panel planted in Seasons 4 and 6 was described by @brent
 
 The genomics dataset includes raw and derived sorghum genome sequencing data from the TERRA-REF project. Raw data includes DNA sequence files in compressed FASTQ format. Derived data is available for whole-genome resequencing and genotyping-by-sequencing.
 
-The data is contained in the following directory structure:
+These data are archived in the same filesystem as the sensor data, and available at the Globus ncsa#terra-public endpoint under the `genomics/` directory. A copy is available in the CyVerse data store. 
+
+At both Globus and CyVerse, the data is organized in the following directory structure:
 
 ```
 |-data
@@ -69,7 +71,7 @@ Each table contains the following fields:
 Data derived from analysis of the raw resequencing data at the Danforth Center (version1)
 are available as gzipped, genotyped variant call format (gVCF) files and the final
 combined hapmap file in the
-[derived data directory `genomics/derived_data/bap/resequencing/danforth_center/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/bap/resequencing/danforth_center/version1).
+ [derived data directory,  `genomics/derived_data/bap/resequencing/danforth_center/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/bap/resequencing/danforth_center/version1).
 
 ### Genotyping-by-sequencing (GBS) data for sorghum recombinant inbred lines (RIL)
 
@@ -78,9 +80,9 @@ combined hapmap file in the
 Raw data are in gzip FASTQ format. There are 768 available samples.
 
 A key file (`Key_ril_terra`) with sample information can be found in the
-[raw data directory `genomics/raw_data/ril/gbs`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/ril/gbs).
+[raw data directory, `genomics/raw_data/ril/gbs`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/raw_data/ril/gbs).
 
 #### Derived data
 
 Combined genotype calls are available in VCF format in the
-[derived data directory \n `genomics/derived_data/ril/gbs/kansas_state/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1).
+[derived data directory,\newline `genomics/derived_data/ril/gbs/kansas_state/version1`](https://datacommons.cyverse.org/browse/iplant/home/shared/terraref/genomics/derived_data/ril/gbs/kansas_state/version1).

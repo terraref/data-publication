@@ -1,21 +1,44 @@
 ## Future Releases
 
+For the first public release of data we have focused on a subset of the data that we collected, processed, and subjected to quality assurance and control. We expect that this initial data release and subsets of these data curated for specific research projects will provide users and funders with sufficient information to justify processing, validating, and storing data from additional seasons and sensors. 
+
+Here we provide a description of additional data that can be made available for future use.
+
 This data release does not contain all of the data that was collected during the TERRA-REF project. 
 The field scanner was operated as part of the TERRA-REF program with the mission of generating open access data from April 2016 to September of 2019.
-Although this release focuses on two seasons of data, all raw data and metadata is available in the public domain. 
-Some derived products from the entire project is available for use. We will not put this in the public domain until it has been processed and validated - please contact the authors for more information.
+Although this release focuses on two seasons of data, the first priority is to make all of the raw data and metadata is available in the public domain. This raw data archive is in the process of being transferred to tape-storage at the Texas Advanced Computing Center and we expect it will be available in late 2020.
 
-For the first public release of data we have focused on a subset of the data that we collected, processed, and subjected to quality assurance and control. We expect that this initial data release and subsets of these data curated for specific research projects will provide users and funders with sufficient information to justify processing, validating, and storing data from additional seasons and sensors.
+Additional derived products from the project are also available for use, but are not in the public domain because they have not been consistently curated, processed, and validated. These data are available for use - researchers interested in using these data or creating new datasets are invited to contact the authors for more information. The primary constraint on processing and publishing these datasets is the availabilty of scientists and engineers to process and validate the data.
 
-Any use of datasets other than those made available under the CC-0 license must adhere to the [data use](https://docs.terraref.org/user-manual/data-use-policy) and [authorship](https://docs.terraref.org/user-manual/manuscripts-and-authorship-guidelines) guidelines outlined in the TERRA-REF documentation at [docs.terraref.org](https://docs.terraref.org) and the file `documentation/docs.terraref.org_2020_04_06.pdf`.
+Any use of these unpublished derived datasets must adhere to the [data use](https://docs.terraref.org/user-manual/data-use-policy) and [authorship](https://docs.terraref.org/user-manual/manuscripts-and-authorship-guidelines) guidelines outlined in the TERRA-REF documentation at [docs.terraref.org](https://docs.terraref.org) and the file \newline `documentation/docs.terraref.org_2020_04_06.pdf`.
 
+\clearpage
+
+### Additional Sensors Not Included in the Current Data Release {#future-sensors}
+
+At this point we have not sufficiently validated data or curated data from the following sensors. For the VNIR and SWIR hyperspectral imaging cameras this reflects challenges faced in calibration. Other sensors have not been prioritized.  
+
+| Sensor Name                    | Model                                                                                                                                  | Technical Specifications                                                                                              |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **Multi-spectral Radiometers** |                                                                                                                                        |                                                                                                                       |
+| Dedicated NDVI Multispectral Radiometer | [Skye Instruments SKR 1860D/A](https://terraref.org/clowder/datasets/5873a8f64f0cad7d8131af54)                          | 650 nm, 800 nm +/- 5 nm; 1 down, 1 up                                                                                 |
+| Dedicated PRI Multispectral Radiometer           | [Skye Instruments SKR 1860ND/A](https://terraref.org/clowder/datasets/5873a9174f0cad7d8131b09a)                                        | 531nm +/- 3nm; PRI = [Photochemical Reflectance Index](https://en.wikipedia.org/wiki/Photochemical_Reflectance_Index) |
+| Active Reflectance             | [Holland Scientific Crop Circle ACS-430](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a7ed4f0cad7d8131a2e7) | 670 nm, 730 nm, 780 nm |
+| VNIR Spectroradiometer         | [Ocean Optics STS-Vis](https://terraref.org/clowder/datasets/5873a87a4f0cad7d8131a96a)                                                                                                                   | Range: 337-824 nm @ 1/2 nm                                                                                            |
+| **Hyper-spectral Cameras**     |                                                                                                                                        |                                                                                                                       |
+| VNIR Hyperspectral Imager      | [Headwall Inspector VNIR](https://terraref.org/clowder/datasets/5873a7bb4f0cad7d8131a0b7?space=594bda394f0cf8bbab271dfb) | 380-1000 nm @ 2/3 nm resolution                                                                                       |
+| SWIR Hyperspectral Imager      | [Headwall Inspector SWIR](https://terraref.org/clowder/datasets/5873a79e4f0cad7d81319f5f?space=594bda394f0cf8bbab271dfb) | 900-2500 nm @ 2/3 nm resolution                                                                                       |
+| **Environmental**              |                                                                                                                                        |                                                                                                                       |
+| SWIR Spectrometer              | [Spectral Evolution PSR+](https://terraref.org/clowder/datasets/599deaa64f0c19c55fc0aecd)                                | Range 800-2500nm; Installed 2018                                                                                      |
+| Open Path CO~2~ Sensor            | [Vaisala CARBOCAP Carbon Dioxide Probe GMP343](https://terraref.org/clowder/datasets/5873a9924f0cad7d8131b648?space=594bda394f0cf8bbab271dfb) | Range: 0-1000 ppm                                                                             
+\clearpage 
 
 ### Additional Seasons Not Included in the Current Data Release
 
-| Season | Crop        | Experiments              | Populations                           | Planting Date | Harvest    |
+| Season | Crop        | Experiments              | Populations^[RIL = Recombinant Inbred Lines, BAP = Bioenergy Association Panel, SAP = Sorghum Association Panel]                           | Planting Date | Harvest    |
 |--------|-------------|--------------------------|---------------------------------------|---------------|------------|
 | 1      | Sorghum     | Density                  | BAP, RIL                              | 2016-04-20    | 2016-07-16 |
-| 2      | Sorghum     | Uniformity Trials        | Stay Green RILs F10                   | 2016-07-27    | 2016-12-02 |
+| 2      | Sorghum     | Uniformity Trials^[Uniformity Trial = same lines planted in strips across field.]        | Stay Green RILs F10                   | 2016-07-27    | 2016-12-02 |
 | 3      | Durum Wheat |                          | Diversity Panel                       | 2016-12-15    | 2017-04-05 |
 | 4      | Sorghum     | Late Season Drought      |                                       | 2017-04-13    | 2017-09-21 |
 | 5      | Durum Wheat |                          | Diversity Panel                       | 2017-11-20    | 2018-04-05 |
@@ -23,25 +46,8 @@ Any use of datasets other than those made available under the CC-0 license must 
 | 7      | Sorghum     | Hybrid Uniformity Blocks | Stay Green RILs, Mutants, F2 families | 2018-08-23    | 2018-11-01 |
 | 8      | Durum Wheat | Uniformity Trials        | Diversity Panel                       | 2019-01-01    | 2019-03-31 |
 | 9 S    | Sorghum     |                          | GRASSL x RIO RILs                     | 2019-05-01    | 2019-07-28 |
-| 9 N    | Sorghum     |                          | SAP                                   | 2019-04-29    | 2019-09-05 |
-
-table caption: "*RIL = Recombinant Inbred Lines, BAP = Bioenergy Association Panel, SAP = Sorghum Association Panel, Uniformity Trial = same lines planted in strips across field. In season 9 a second field 'North' was added, and separate trials were conducted."
-
-### Additional Sensors {#future-sensors}
-
-| Sensor Name                    | Model                                                                                                                                  | Technical Specifications                                                                                              |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| **Multi-spectral Radiometers** |                                                                                                                                        |                                                                                                                       |
-| Dedicated NDVI Multispectral Radiometer | [Skye Instruments SKR 1860D/A](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a8f64f0cad7d8131af54)                          | 650 nm, 800 nm +/- 5 nm; 1 down, 1 up                                                                                 |
-| Dedicated PRI Multispectral Radiometer           | [Skye Instruments SKR 1860ND/A](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a9174f0cad7d8131b09a)                                        | 531nm +/- 3nm; PRI = [Photochemical Reflectance Index](https://en.wikipedia.org/wiki/Photochemical_Reflectance_Index) |
-| Active Reflectance             | Holland Scientific Crop Circle ACS-430 | 670 nm, 730 nm, 780 nm |
-| VNIR Spectroradiometer         | Ocean Optics STS-Vis                                                                                                                   | Range: 337-824 nm @ 1/2 nm                                                                                            |
-| **Hyper-spectral Cameras**     |                                                                                                                                        |                                                                                                                       |
-| VNIR Hyperspectral Imager      | [Headwall Inspector VNIR](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a7bb4f0cad7d8131a0b7?space=594bda394f0cf8bbab271dfb) | 380-1000 nm @ 2/3 nm resolution                                                                                       |
-| SWIR Hyperspectral Imager      | [Headwall Inspector SWIR](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a79e4f0cad7d81319f5f?space=594bda394f0cf8bbab271dfb) | 900-2500 nm @ 2/3 nm resolution                                                                                       |
-| **Environmental**              |                                                                                                                                        |                                                                                                                       |
-| SWIR Spectrometer              | [Spectral Evolution PSR+](https://terraref.ncsa.illinois.edu/clowder/datasets/599deaa64f0c19c55fc0aecd)                                | Range 800-2500nm; Installed 2018                                                                                      |
-| Open Path CO~2~ Sensor            | [Vaisala CARBOCAP Carbon Dioxide Probe GMP343](https://terraref.ncsa.illinois.edu/clowder/datasets/5873a9924f0cad7d8131b648?space=594bda394f0cf8bbab271dfb) | Range: 0-1000 ppm                                                                                                     |
+| 9 N^[In season 9 a second field 'North' was added, and separate trials were conducted]    | Sorghum     |                          | SAP                                   | 2019-04-29    | 2019-09-05 |
+|
 <!--
 ### New derived datasets
 

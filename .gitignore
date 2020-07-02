@@ -1,5 +1,6 @@
 # macOS hidden metadata files
 .DS_Store
-
 # Windows hidden metadata files
 Thumbs.db
+.httr-oauth
+.Rproj.user

@@ -21,12 +21,13 @@ bety_src <- src_postgres(
 #   password = 'DelchevskoOro',
 #   host = 'localhost',
 #   user = 'viewer',
-#   port = 5433
+#   port = 5432
 #   )
 
 traitsview <- tbl(bety_src, 'traits_and_yields_view')
 
-setwd("~/dev/terraref-dryad/")
+setwd("~/dev/terraref-dryad")
+
 
 seasons <- c("Season 4", "Season 6")
 traits <- list(`Season 4` =
