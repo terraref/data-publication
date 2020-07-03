@@ -22,7 +22,7 @@ author:
  - Sidike Paheding^[Saint Louis University, orcid:0000-0003-4712-9672]
  - Duke Pauli^[University of Arizona, orcid:0000-0002-8292-2388]
  - Robert Pless^[George Washington University, orcid:0000-0001-5775-8216]
- - Wei Qin^[University of Illinois at Urbana-Champaign, current: Amazon.com, Inc]
+ - Wei Qin^[University of Illinois at Urbana-Champaign, current: Amazon.com, Inc, orcid: 0000-0003-4816-6336]
  - Kristina Riemer^[University of Arizona, orcid:0000-0003-3802-3331]
  - Gareth Scott Rohde^[University of Illinois at Urbana-Champaign, orcid:0000-0001-9030-0936]
  - William L. Rooney^[Texas A&M University, orcid:0000-0001-7953-1856]
