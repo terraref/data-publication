@@ -8,16 +8,22 @@ This form is for authors of the initial data publication to be submitted to Drya
 
 ## Status 
 
-**May 11 2020**
+**July 02 2020**
 
-* A draft of the data and [README for Dryad](https://github.com/terraref/data-publication/blob/master/terraref-dryad.pdf) are available for review. 
-* The associated data paper to be submitted to Nature Scientific Data is being developed in the repository https://github.com/terraref/data-paper. Please contact David if you are interested in contributing to this effort.
+* A draft of the data and [README for Dryad](https://github.com/terraref/data-publication/blob/master/terraref-dryad.pdf) have been submitted to Dryad for review. 
+* A more descriptive data paper will be submitted to Nature Scientific Data. This is being developed in the repository https://github.com/terraref/data-paper. Please contribute there or contact David if you are interested in contributing to this effort.
+
+To cite this dataset: 
+
+> LeBauer, D.S., Burnette, M.A., Demieville, J., Fahlgren, N., French, A.N., Garnett, R., Hu, Z., Huynh, K., Kooper, R., Li, Z., Maimaitijiang, M., Mao, J., Mockler, T.C., Morris, G.P., Newcomb, M., Ottman, M., Ozersky, P., Paheding, S., Pauli, D., Pless, R., Qin, W., Riemer, K., Rohde, G.S., Rooney, W.L., Sagan, V., Shakoor, N., Stylianou, A., Thorp, K., Ward, R., White, J.W., Willis, C.,  and Zender C.S. (2020). TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors. Dryad Digital Repository. http://doi.org/10.5061/dryad.4b8gtht99
 
 ## Opt-in Co-authorship
 
 Co-authorship is intended to be inclusive. Contributions warranting co-authorship and further details about the TERRA REF authorship process are described here: https://docs.terraref.org/user-manual/manuscripts-and-authorship-guidelines
 
 Contributors should fill out this form to https://forms.gle/AJmBRothWuaPiRz38.
+
+Additional authors and contributions are welcome - we will update this as additional data are added in subsequent versions.
 
 ## Reviewing this manuscript
 
