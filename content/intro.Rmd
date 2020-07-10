@@ -19,27 +19,27 @@ To cite this dataset:
 
 > LeBauer, D.S., Burnette, M.A., Demieville, J., Fahlgren, N., French, A.N., Garnett, R., Hu, Z., Huynh, K., Kooper, R., Li, Z., Maimaitijiang, M., Mao, J., Mockler, T.C., Morris, G.P., Newcomb, M., Ottman, M., Ozersky, P., Paheding, S., Pauli, D., Pless, R., Qin, W., Riemer, K., Rohde, G.S., Rooney, W.L., Sagan, V., Shakoor, N., Stylianou, A., Thorp, K., Ward, R., White, J.W., Willis, C.,  and Zender C.S. (2020). TERRA-REF, An Open Reference Data Set From High Resolution Genomics, Phenomics, and Imaging Sensors. Dryad Digital Repository. http://doi.org/10.5061/dryad.4b8gtht99
 
-This data publication consists of data and metadata, as described below.
-Plot level phenotypes, experimental meta-data, and a catalog of large files are available on Dryad.
-The file catalog provides the location of larger sensor files that can be accessed using the Globus file transfer service.  
-Because the dataset contains over 400TB of sensor data files, these large files are stored at the National Center for Supercomputing Applications and are made available using the Globus file transfer service.
+This data publication consists of data, metadata, and a catalog of over 400 TB of files that are stored on a server at the National Center for Supercomputing Applications and made available through Globus on the `ncsa#terra-public` endpoint. 
 
-In addition to hosting an archival copy of data on Dryad, the documentation includes instructions for browsing and accessing these data through a variety of online portals. 
-These portals provide access to web user interfaces as well as databases, apis, and R and Python clients.
-In some cases it will be easier to access data through these portals using web interfaces and software libraries.
+Except where clearly indicated for sensor data, the structure of directories that contain data and metadata refer to the contents of the ZIP files in the Dryad archive. This document describes the contents of the Dryad arcive, which includes directories organized in the following zip files:
 
-Except where clearly indicated for sensor data, the structure of directories that contain data and metadata refer to the contents of the Dryad archive.
-There are four directories: `data`, `metadata`, `code`, and `documentation`.
+* `metadata.zip` contains the `metadata/` directory. This includes information about experiments, sensors, and germplasm used in the study as well as comprehensive documentation.
+* `code.zip` contains the `code/` directory. This includes code used to generate figures and tables in this README as well as instructions for running a copy of the trait database.
+* `trait_data.zip` contains the `data/traits/` directory with one csv file for each plot level phenotype, described in {#phenotype-data}.
+* `sensor_data_catalogs.zip` contains the `data/sensors/` directory. These catalogs provide an inventory of the files that are available using the Globus file transfer service. See {#sensor-data} for more information.
 
-The TERRA-REF documentation is hosted at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `docs.terraref.org_2020_04_06.pdf` in the `metadata/` directory.
+In addition to providing an archival data on Dryad, it is possible to browse and access these data through a variety of online portals. These online portals provide access to web user interfaces as well as databases, apis, and R and Python clients.
+In many cases it will be easier to access data through these portals using web interfaces and software libraries.
 
-Tutorials for getting started with TERRA-REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
+The **TERRA REF documentation** includes instructions for using these portals, and is hosted online at [docs.terraref.org](https://docs.terraref.org). The section ["How to Access Data"](https://docs.terraref.org/user-manual/how-to-access-data) provides an overview of methods that can be used to access data beyond what is provided in this repository. There is also a PDF copy of the documentation in the file `metadata/docs.terraref.org_2020_04_06.pdf`.
 
-The TERRA-REF YouTube channel hosts 1) video walkthroughs of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
+**Tutorials** for getting started with TERRA-REF data are available at [terraref.org/tutorials](https://terraref.github.io/tutorials) and on GitHub at [github.com/terraref/tutorials](https://github.com/terraref/tutorials).
+
+The TERRA-REF **YouTube channel** hosts 1) video walkthroughs of the tutorials https://www.youtube.com/channel/UComeQAqYR5aZrXN_3K5iFGw and 2) a playlist of videos related to the project https://www.youtube.com/playlist?list=PLNgRX4VLed8213stlJp60MvVx2p6VTv6N.
 
 All data are released to the public domain under the [CC-0 license](https://creativecommons.org/share-your-work/public-domain/cc0/). All original software are licensed with the BSD 3-clause or MIT/BSD compatible license. All software used for data processing have been archived on Zenodo and are available on GitHub in the `terraref` organization: [github.com/terraref](https://github.com/terraref).
 
-This software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the DOIs for code archives that contain the state of the software at the time the data were processed.
+The software was created specifically for the field scanner data processing pipeline that is described by @burnette2018. The file `code/source_code_dois.txt` provides the DOIs for code archives that contain the state of the software at the time the data were processed.
 
 | Component                     | Github Organization / Repository                 | Archive Citation            |
 |------------------------------|-----------------------------------|-----------------------------|
